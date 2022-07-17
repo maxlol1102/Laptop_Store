@@ -33,7 +33,7 @@
                                 <img src="{{URL::to('public/backend/img_admin/'.$v_content->options->image)}}" width="70" alt="" />
                             </td>
                             <td style="text-align: center; vertical-align: bottom">
-                                <a href="{{URL::to('/detail_product')}}/{{$v_content->id}}" style="font-size: 14px;">{{$v_content->name}}</a>
+                                <a href="{{URL::to('/detail_product')}}/{{$v_content->code}}" style="font-size: 14px;">{{$v_content->name}}</a>
                             </td>
                             <td style="text-align: center; vertical-align: bottom">
                                 <font style="font-size: 14px;">{{number_format($v_content->price).''.'vnđ'}}</font>

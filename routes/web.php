@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\Route;
     Route::post('/trang-chu','HomeController@index');
     //Route::get('/trang-chu1','HomeController@category');
     Route::get('/lien-he','HomeController@index1');
-    Route::get('/detail_product/{id}','ProductController@detail_product');
-    //Route::get('/category_product/{id}','ProductController@tbl_category_product');
-    //Route::post('/category_product/{id}','ProductController@tbl_category_product');
+    Route::get('/detail_product/{product_code}','ProductController@detail_product');
+    //Route::get('/category_product/{category_id}','ProductController@tbl_category_product');
+    //Route::post('/category_product/{category_id}','ProductController@tbl_category_product');
     Route::post('/save-cart','CartController@save_cart');
     Route::get('/show-cart','CartController@show_cart');
     Route::post('/show-cart','CartController@show_cart');
     Route::get('/delete-to-cart/{rowId}','CartController@delete_to_cart');
     Route::post('/update-cart-quantity','CartController@update_cart_quantity');
     //categoryproduct
-        Route::get('/category_product/{id}','ProductController@category');
+        Route::get('/category_product/{category_id}','ProductController@category');
         // Route::get('/add-category-product','CategoryProduct@add_category_product');
         // Route::get('/all-category-product','CategoryProduct@all_category_product');// _ham thi _s
         // Route::post('/save-category-product','CategoryProduct@save_category_product');
@@ -48,13 +48,13 @@ use Illuminate\Support\Facades\Route;
             Route::get('/add-product','Product@add_product');
             Route::get('/all-product','Product@all_product');
             Route::post('/all-product','Product@all_product');
-            Route::get('/edit-product/{product_id}','Product@edit_product');
-            Route::post('/edit-product/{product_id}','Product@edit_product');
-            Route::get('/delete-product/{product_id}','Product@delete_product');
-            Route::get('/unactive-product/{product_id}','Product@unactive_product');
-            Route::get('/active-product/{product_id}','Product@active_product');
+            Route::get('/edit-product/{product_code}','Product@edit_product');
+            Route::post('/edit-product/{product_code}','Product@edit_product');
+            Route::get('/delete-product/{product_code}','Product@delete_product');
+            Route::get('/unactive-product/{product_code}','Product@unactive_product');
+            Route::get('/active-product/{product_code}','Product@active_product');
             Route::post('/save-product','Product@save_product');
-            Route::post('/update-product/{product_id}','Product@update_product');
+            Route::post('/update-product/{product_code}','Product@update_product');
             // asc
 
         //customer

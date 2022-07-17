@@ -26,10 +26,10 @@
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                    <a href="{{URL::to('/detail_product')}}/{{$pro->id}}"><img src="{{URL::to('public/backend/img_admin/'.$pro->product_img)}}" alt="" /></a>
+                    <a href="{{URL::to('/detail_product')}}/{{$pro->code}}"><img src="{{URL::to('public/backend/img_admin/'.$pro->product_img)}}" alt="" /></a>
                     <p>{{$pro->product_name}}</p>
                     <h2>{{number_format($pro->product_price).' '.'VND'}}</h2>
-                    <a href="{{URL::to('/detail_product')}}/{{$pro->id}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                    <a href="{{URL::to('/detail_product')}}/{{$pro->code}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>

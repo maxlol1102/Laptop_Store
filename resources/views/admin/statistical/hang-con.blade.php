@@ -59,7 +59,7 @@
             <td style="text-align: center">{{ $item->product_quantily}}</td>
             <td style="text-align: center">
                 <?php
-                    if($item->product_status == 0){  //trang thai
+                    if($item->product_quanity == 0){  //trang thai
                 ?>
                     Hết hàng <span class="fa-thumb-styling fa fa-thumbs-down" style="color: red; font-size:20px"></span>{{--  an danh muc --}}
                 <?php

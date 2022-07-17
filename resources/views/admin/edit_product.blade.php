@@ -18,7 +18,7 @@
             <div class="panel-body">
                 @foreach($edit_product as $key => $edit_value)
                 <div class="position-center">
-                    <form role="form" action="{{URL::to('/update-product/'.$edit_value->id)}}" method="post" enctype="multipart/form-data"> {{-- gui du lieu den save-category de xu ly --}} {{-- xu dung phuong thuc post nen ben web update cung post --}}
+                    <form role="form" action="{{URL::to('/update-product/'.$edit_value->code)}}" method="post" enctype="multipart/form-data"> {{-- gui du lieu den save-category de xu ly --}} {{-- xu dung phuong thuc post nen ben web update cung post --}}
                         {{csrf_field()}}  {{--  giup bao mat hon --}}
                         <input type="hidden" name="_token" value="{{ csrf_token()}}"> <!-- Không chuyển trang sau khi load form -->
                     <div class="form-group">

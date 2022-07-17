@@ -65,7 +65,7 @@
                         }
                     ?>
                 </th>
-                <th style="text-align: center">Trạng thái</th>
+                <th style="text-align: center">Số lượng</th>
                 <th style="text-align: center">Mã danh mục</th>
                 <th style="text-align: center">Chức năng</th>
             </tr>
@@ -74,30 +74,37 @@
             @foreach($all_product as $key => $prod_pro)
             <tr>
                 <td style="text-align: center"><?php $i++; echo $i; ?></td>
-                <td style="text-align: center">{{ $prod_pro->id }}</td>
+                <td style="text-align: center">{{ $prod_pro->code}}</td>
                 <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $prod_pro->product_img }}">{{ $prod_pro->product_img }}</td>
                 <td style="text-align: center">{{ $prod_pro->product_name }}</td>   {{-- lay ten sp ra --}}
                 <td style="text-align: center">{{ $prod_pro->product_desc }}</td>  {{-- mota sp --}}
                 <td style="text-align: center">{{ number_format($prod_pro->product_price) }} VND</td>  {{-- gia sp --}}
-                <td style="text-align: center"><span class="text-ellipsis">
+                <td style="text-align: center">
+{{--                    <span class="text-ellipsis">--}}
                 <?php
-                if($prod_pro->product_status==0){  //trang thai
+                if($prod_pro->product_quanity==0){  //trang thai số lượng hàng để hiển thị
                 ?>
-                <a href="{{URL::to('/unactive-product/'.$prod_pro->id)}}"><span class="fa-thumb-styling fa fa-thumbs-down" style="color: red; font-size:20px"></span></a>{{--  an san pham --}}
+                    {{ $prod_pro->product_quanity}}
+{{--                    <a href="{{URL::to('/unactive-product/'.$prod_pro->product_quanity)}}">--}}
+{{--                    <span class="fa-thumb-styling fa fa-thumbs-down" style="color: red; font-size:20px"></span></a>  {{--  an san pham--}}
                 <?php
                     }else{
                     ?>
-                    <a href="{{URL::to('/active-product/'.$prod_pro->id)}}"><span class="fa-thumb-styling fa fa-thumbs-up" style="color: blue; font-size:20px"></span></a> {{-- hien san pham --}}
+                    {{ $prod_pro->product_quanity}}
+{{--                    <a href="{{URL::to('/active-product/'.$prod_pro->product_quanity)}}">--}}
+{{--                        <span class="fa-thumb-styling fa fa-thumbs-up" style="color: blue; font-size:20px"></span></a>  {{-- hien san pham--}}
                     <?php
                     }
                 ?>
-                </span></td>
-                <td style="text-align: center">{{ $prod_pro->category_name}}</td>
+{{--                    </span>--}}
+                </td>
+{{--                <td style="text-align: center">{{ $prod_pro->product_quanity}}</td>--}}  {{--lấy ra số lượng SP --}}
+                <td style="text-align: center">{{ $prod_pro->category_id}}</td>
                 <td style="text-align: center">
-                <a href="{{URL::to('/edit-product/'.$prod_pro->id)}}" class="active" ui-toggle-class="" style="font-size: 17px">
+                <a href="{{URL::to('/edit-product/'.$prod_pro->code)}}" class="active" ui-toggle-class="" style="font-size: 17px">
                     <i class="fa fa-pencil-square-o text-success text-active"></i>
                 </a>
-                <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')" href="{{URL::to('/delete-product/'.$prod_pro->id)}}" class="active" ui-toggle-class=""style="font-size: 17px">
+                <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')" href="{{URL::to('/delete-product/'.$prod_pro->code)}}" class="active" ui-toggle-class=""style="font-size: 17px">
                     <i  class="fa fa-trash text-danger text"></i>
                 </a>
                 </td>

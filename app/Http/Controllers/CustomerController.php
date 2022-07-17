@@ -348,7 +348,7 @@ class CustomerController extends Controller
                 // tbl_order_detail//
 
                     // lay thong tin san pham da them vao gio hang
-                    $product_id = $value->id;
+                    $product_code = $value->code;
                     $product_img = $value->options->image;
                     $product_name = $value->name;
                     $product_qty = $value->qty;
@@ -358,7 +358,7 @@ class CustomerController extends Controller
                     $db_order_detail = new OrderDetails();
                     // thuc thi luu thong tin vao csdl
                     $db_order_detail->order_id = $db_order->order_id;
-                    $db_order_detail->order_product_id = $product_id;
+                    $db_order_detail->order_product_id = $product_code;
                     $db_order_detail->order_product_image = $product_img;
                     $db_order_detail->order_product_name = $product_name;
                     $db_order_detail->order_qty = $product_qty;
