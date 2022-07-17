@@ -35,18 +35,18 @@ class CategoryProduct extends Controller
         }
     }
     public function unactive_category_product($category_product_id){
-        DB::table('tbl_category_product')->where('category_name',$category_product_id)->update(['category_status'=>1]);  // khi click vao no se so snh vs id -> cho no bang 0
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);  // khi click vao no se so snh vs id -> cho no bang 0
         Session::put('message','Kích hoạt danh mục sản phẩm thành công!');
         return Redirect::to('all-category-product');  // tra ve lai all category
 
     }
     public function active_category_product($category_product_id){
-        DB::table('tbl_category_product')->where('category_name',$category_product_id)->update(['category_status'=>0]);  // khi click vao no se so snh vs id -> cho no bang 1
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>0]);  // khi click vao no se so snh vs id -> cho no bang 1
         Session::put('message','Không kích hoạt danh mục sản phẩm thành công!');
         return Redirect::to('all-category-product');  // tra ve lai all category
     }
     public function edit_category_product($category_product_id){
-        $edit_category_product = DB::table('tbl_category_product')->where('category_name',$category_product_id)->get(); // where dieu kien
+        $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get(); // where dieu kien
         $manager_category_product = view('admin.edit_category_product')->with('edit_category_product',$edit_category_product);
         return view('admin_layout')->with('admin.edit_category_product',$manager_category_product);
     }

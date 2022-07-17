@@ -163,7 +163,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h5 class="">
-                                        <a href="{{asset('/category_product')}}/{{$cg->category_name}}">{{$cg->category_name}}</a>
+                                        <a href="{{asset('/category_product')}}/{{$cg->category_id}}">{{$cg->category_name}}</a>
                                     </h5>
                                 </div>
                             </div>

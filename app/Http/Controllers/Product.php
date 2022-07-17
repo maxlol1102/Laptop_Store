@@ -45,7 +45,7 @@ session_start();
                     if($search) {
                         Session::put('value', $search);
                         Session::put('index', 'check');
-                        $all_product = DB::table('tbl_product')->where('id', 'like', '%'.$search.'%')->orWhere('product_name', 'like', '%'.$search.'%')->get();
+                        $all_product = DB::table('tbl_product')->where('code', 'like', '%'.$search.'%')->orWhere('product_name', 'like', '%'.$search.'%')->get();
                         $manager_product = view('admin.all_product')->with('all_product',$all_product);
                         return view('admin_layout')->with('admin.all_product',$manager_product);
                     }
@@ -70,7 +70,7 @@ session_start();
         }*/
         public function save_product(UploadFileRequest $request){  //request la yeu cau
             $data = array();  // khai bao 1 chuoi
-            if(empty($request->product_name) || empty($request->product_desc) || empty($request->product_price) || empty($request->category_name) || empty($request->chip) || empty($request->ram) || empty($request->weight) || empty($request->hard_drive)) {
+            if(empty($request->product_name) || empty($request->product_desc) || empty($request->product_price) || empty($request->category_id) || empty($request->chip) || empty($request->ram) || empty($request->weight) || empty($request->hard_drive)) {
                 Session::put('message','Chưa nhập đủ thông tin!');
                 return Redirect::to('add-product');
             } else {
@@ -82,8 +82,8 @@ session_start();
                     $data['product_name'] = $request->product_name;// lay tu add_category_name xong them vao tbl_category cua category_name
                     $data['product_desc'] = $request->product_desc;
                     $data['product_price'] = $request->product_price;
-                    $data['product_status'] = $request->product_status;
-                    $data['category_name'] = $request->category_name;
+                    $data['product_quanity'] = $request->product_quanity;
+                    $data['category_id'] = $request->category_id;
                     $data['chip'] = $request->chip;
                     $data['ram'] = $request->ram;
                     $data['weight'] = $request->weight;
@@ -97,23 +97,23 @@ session_start();
                 }
             }
         }
-        public function unactive_product($product_id){
-            DB::table('tbl_product')->where('id',$product_id)->update(['product_status'=>1]);  // khi click vao no se so snh vs id -> cho no bang 0
+        public function unactive_product($product_code){
+            DB::table('tbl_product')->where('code',$product_code)->update(['product_status'=>1]);  // khi click vao no se so snh vs id -> cho no bang 0
             Session::put('message','Kích hoạt sản phẩm thành công!');
             return Redirect::to('all-product');  // tra ve lai all category
         }
-        public function active_product($product_id){
-            DB::table('tbl_product')->where('id',$product_id)->update(['product_status'=>0]);  // khi click vao no se so snh vs id -> cho no bang 1
+        public function active_product($product_code){
+            DB::table('tbl_product')->where('code',$product_code)->update(['product_status'=>0]);  // khi click vao no se so snh vs id -> cho no bang 1
             Session::put('message','Không kích hoạt sản phẩm thành công!');
             return Redirect::to('all-product');  // tra ve lại Redirect all category
         }
-        public function edit_product($product_id){
-            $edit_product = DB::table('tbl_product')->where('id',$product_id)->get(); // where dieu kien
+        public function edit_product($product_code){
+            $edit_product = DB::table('tbl_product')->where('code',$product_code)->get(); // where dieu kien
             $select = DB::table('tbl_category_product')->select('*')->get();
             $manager_product = view('admin.edit_product', compact('select'))->with('edit_product',$edit_product);
             return view('admin_layout')->with('admin.edit_product',$manager_product);
         }
-        public function update_product(Request $request,$product_id){
+        public function update_product(Request $request,$product_code){
             $data = array();
             if($request->isMethod('post')) {
                 // ham upload file hinh anh
@@ -121,15 +121,15 @@ session_start();
                     $file_name = $request->file('product_img')->getClientOriginalName();
                     $request->file('product_img')->move('public/backend/img_admin', $file_name);
                     $data['product_img'] = $file_name;
-                    $data['product_name'] = $request->product_name;// lay tu add_category_name xong them vao tbl_category cua category_name
+                    $data['product_name'] = $request->product_name;// lay tu add_category_id xong them vao tbl_category cua category_id
                     $data['product_desc'] = $request->product_desc;
                     $data['product_price'] = $request->product_price;
-                    $data['category_name'] = $request->category_name;
+                    $data['category_id'] = $request->category_id;
                     $data['chip'] = $request->chip;
                     $data['ram'] = $request->ram;
                     $data['weight'] = $request->weight;
                     $data['hard_drive'] = $request->hard_drive;
-                    DB::table('tbl_product')->where('id',$product_id)->update($data);
+                    DB::table('tbl_product')->where('code',$product_code)->update($data);
                     Session::put('message','Cập nhật sản phẩm thành công!');
                     return Redirect::to('all-product');  // tra ve lai all category
                 } else {
@@ -138,22 +138,22 @@ session_start();
                             $product_img = $value->product_img;
                         }
                         $data['product_img'] = $product_img;
-                        $data['product_name'] = $request->product_name;// lay tu add_category_name xong them vao tbl_category cua category_name
+                        $data['product_name'] = $request->product_name;// lay tu add_category_id xong them vao tbl_category cua category_name
                         $data['product_desc'] = $request->product_desc;
                         $data['product_price'] = $request->product_price;
-                        $data['category_name'] = $request->category_name;
+                        $data['category_id'] = $request->category_id;
                         $data['chip'] = $request->chip;
                         $data['ram'] = $request->ram;
                         $data['weight'] = $request->weight;
                         $data['hard_drive'] = $request->hard_drive;
-                        DB::table('tbl_product')->where('id',$product_id)->update($data);
+                        DB::table('tbl_product')->where('code',$product_code)->update($data);
                         Session::put('message','Cập nhật sản phẩm thành công!');
                         return Redirect::to('all-product');
                     }
             }
         }
-        public function delete_product($product_id){
-            DB::table('tbl_product')->where('id',$product_id)->delete();
+        public function delete_product($product_code){
+            DB::table('tbl_product')->where('id',$product_code)->delete();
             Session::put('message','Xóa danh phẩm thành công!');
             return Redirect::to('all-product');  // tra ve lai all category
         }

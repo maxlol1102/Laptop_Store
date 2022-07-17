@@ -20,18 +20,18 @@
         <div class="product-information"><!--/product-information-->
             <img src="public/frontend/images/product-details/new.jpg" class="newarrival" alt="" />
             <h2>{{$dt->product_name}}</h2>
-            <p>Mã ID: {{$dt->id}}</p>
+            <p>Mã CODE: {{$dt->code}}</p>
             <img src="public/frontend/images/product-details/rating.png" alt="" />
             <form action="{{URL::to('/save-cart')}}" method="POST">
                 {{ csrf_field() }}
                 <span>
                     <span>{{number_format($dt->product_price).'VNĐ'}} (Đã bao gồm thuế VAT)</span>
                     <?php
-                        if($dt->product_status == 1) {
+                        if($dt->product_quanity != 0) {
                     ?>
                     <label>Số lượng:</label>
                     <input name="qty" type="number" min="1"  value="1" />
-                    <input name="productid_hidden" type="hidden"  value="{{$dt->id}}" />
+                    <input name="productid_hidden" type="hidden"  value="{{$dt->code}}" />
                     <button type="submit" class="btn btn-fefault cart">
                         <i class="fa fa-shopping-cart"></i>
                         Thêm giỏ hàng
@@ -39,7 +39,7 @@
                 </span>
                 <p><b>Tình trạng:</b> Còn hàng </p>
                     <?php
-                        } else if($dt->product_status == 0) {
+                        } else if($dt->product_quanity == 0) {
                     ?>
                         <br><br><p><b>Tình trạng:</b> Hết hàng </p>
                     <?php
@@ -47,7 +47,7 @@
                     ?>
                 </p>
                 <p><b>Trạng thái:</b> Mới 100%</p>
-                <p><b>Hãng:</b> {{$dt->category_name}}</p>
+                <p><b>Hãng:</b> {{$dt->category_id}}</p>
             </form>
             <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
         </div><!--/product-information-->

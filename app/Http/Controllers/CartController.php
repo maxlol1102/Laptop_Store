@@ -16,11 +16,11 @@ class CartController extends Controller
     public function save_cart(Request $request){
         $productId = $request->productid_hidden;//lay 2 truong tu bang trang detail
         $quantity = $request->qty;
-        $product_info = DB::table('tbl_product')->where('id',$productId)->first();//lay tat ca cac thong tin dua vao id
+        $product_info = DB::table('tbl_product')->where('code',$productId)->first();//lay tat ca cac thong tin dua vao id
 
         //Cart::add('293ad', 'Product 1', 1, 9.99, 550);
         //Cart::destroy();//huy phien session
-        $data['id'] = $product_info->id;
+        $data['id'] = $product_info->code;
         $data['qty'] = $quantity;
         $data['name'] = $product_info->product_name;
         $data['price'] = $product_info->product_price;
