@@ -93,6 +93,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
+                        <span>Quản lý đơn đặt hàng</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/order-manager')}}">Đơn hàng đang chờ xử lý</a></li>
+                        <li><a href="{{URL::to('/order-manager-verified')}}">Đơn hàng đang vận chuyển</a></li>
+                        <li><a href="{{URL::to('/order-manager-successfully')}}">Đơn hàng đã giao</a></li>
+                        <li><a href="{{URL::to('/order-manager-callback')}}">Đơn hàng đã thu hồi</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Thống kê</span>
+                    </a>
+                    <ul class="sub">
+                        {{--<li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
+                        <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>--}}
+                        <li><a href="{{URL::to('hang-da-ban')}}">Đơn hàng đã bán</a></li>
+                        <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
                         <span>Danh mục sản phẩm</span>
                     </a>
                     <ul class="sub">
@@ -116,31 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Khách hàng</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{URL::to('/all-customer')}}">Liệt kê thông tin khách hàng</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Quản lý đơn đặt hàng</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="{{URL::to('/order-manager')}}">Đơn hàng đang chờ xử lý</a></li>
-                        <li><a href="{{URL::to('/order-manager-verified')}}">Đơn hàng đang vận chuyển</a></li>
-                        <li><a href="{{URL::to('/order-manager-successfully')}}">Đơn hàng đã giao</a></li>
-                        <li><a href="{{URL::to('/order-manager-callback')}}">Đơn hàng đã thu hồi</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Thống kê</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
-                        <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>
-                        <li><a href="{{URL::to('hang-da-ban')}}">Đơn hàng đã bán</a></li>
-                        <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
+                        <li><a href="{{URL::to('/all-customer')}}">Lịch sử mua hàng</a></li>
                     </ul>
                 </li>
             </ul>
@@ -157,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- footer -->
         <div class="footer" style="background: #626262; text-align: center">
             <div class="wthree-copyright">
-            <p>Được phát triển bởi Sinh Viên Đào Thị Thu Trang K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+            <p>Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
             </div>
         </div>
 <!-- / footer -->
