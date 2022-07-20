@@ -17,13 +17,23 @@
     <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
+        <p style="text-align: center; background: #ddede0"><b>Tổng số đơn hàng đã giao:
+                @foreach ($db as $item)
+                    <?php
+                    $count = count($db);
+                    ?>
+                @endforeach
+                <?php
+                if($count) {
+                    echo "<font color='red'>".$count."</font>";
+                }
+                ?></b></p>
         <tr>
             <th style="text-align: center">STT</th>
             <th style="text-align: center">Mã khách hàng</th>
             <th style="text-align: center">Tên khách hàng</th>
             <th style="text-align: center">Mã đơn hàng</th>
             <th style="text-align: center">Ngày đặt hàng</th>
-            <th style="text-align: center">Trạng thái</th>
             <th style="text-align: center">Chức năng</th>
         </tr>
         </thead>
@@ -38,23 +48,23 @@
                 <td style="text-align: center">{{$item->customer_name}}</td>
                 <td style="text-align: center">{{$item->order_id}}</td>
                 <td style="text-align: center">{{$item->order_day}}</td>
-                <td style="text-align: center">
-                    <?php
-                        if($item->order_status == 0) {
-                    ?>
-                        Đang chờ xử lý
-                    <?php
-                        } else if($item->order_status == 1) {
-                    ?>
-                        Đang vận chuyển đơn hàng
-                    <?php
-                        } else if($item->order_status == 2) {
-                    ?>
-                        Đã giao hàng
-                    <?php
-                        }
-                    ?>
-                </td>
+{{--                <td style="text-align: center">--}}
+{{--                    <?php--}}
+{{--                        if($item->order_status == 0) {--}}
+{{--                    ?>--}}
+{{--                        Đang chờ xử lý--}}
+{{--                    <?php--}}
+{{--                        } else if($item->order_status == 1) {--}}
+{{--                    ?>--}}
+{{--                        Đang vận chuyển đơn hàng--}}
+{{--                    <?php--}}
+{{--                        } else if($item->order_status == 2) {--}}
+{{--                    ?>--}}
+{{--                        Đã giao hàng--}}
+{{--                    <?php--}}
+{{--                        }--}}
+{{--                    ?>--}}
+{{--                </td>--}}
                 <td style="text-align: center">
                     <a href="{{URL::to('/admin-order-manager')}}/{{$item->order_id}}">Chi tiết</a>
                 </td>

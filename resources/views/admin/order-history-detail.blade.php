@@ -35,7 +35,7 @@
             <tr>
                 <td style="text-align: center"><?php $i++; echo $i; ?></td>
                 <td style="text-align: center">{{$item->order_id}}</td>
-                <td style="text-align: center">{{$item->order_product_id}}</td>
+                <td style="text-align: center">{{$item->product_code}}</td>
                 <td style="text-align: center"><img src="/public/backend/img_admin/{{$item->order_product_image}}" alt="" style="height: 50px;" /></td>
                 <td style="text-align: center">{{$item->order_product_name}}</td>
                 <td style="text-align: center">{{$item->order_qty}}</td>

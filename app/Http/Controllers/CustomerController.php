@@ -358,7 +358,7 @@ class CustomerController extends Controller
                     $db_order_detail = new OrderDetails();
                     // thuc thi luu thong tin vao csdl
                     $db_order_detail->order_id = $db_order->order_id;
-                    $db_order_detail->order_product_id = $product_code;
+                    $db_order_detail->product_code = $product_code;
                     $db_order_detail->order_product_image = $product_img;
                     $db_order_detail->order_product_name = $product_name;
                     $db_order_detail->order_qty = $product_qty;
