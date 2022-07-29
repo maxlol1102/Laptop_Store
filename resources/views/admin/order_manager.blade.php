@@ -35,13 +35,8 @@
             <th style="text-align: center">Tên khách hàng</th>
             <th style="text-align: center">Mã đơn hàng</th>
             <th style="text-align: center">Ngày đặt hàng
-<!--                --><?php
-//                $sorted = $db_order->sortBy('order_day');
-//
-//                $sorted->all();
-//
-//                dd($sorted);
-//                ?>
+<?php
+?>
             </th>
             <th style="text-align: center">Chức năng</th>
         </tr>
