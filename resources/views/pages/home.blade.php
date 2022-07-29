@@ -6,10 +6,13 @@
     <?php
         $value = Session::get('value');
         if($value) {
-        } else {
+    ?>
+    Giá tiền
+    <?php Session::put('value', null);
+    } else {
     ?>
         <div style="width: 30%;">
-            <form code="sap_xep_gia" method="GET">
+            <form id="sap_xep_gia" method="GET">
                 <select name="asc_desc" class="asc_desc">
                     <option selected="selected">Giá</option>
                     <option value="asc">Giá tăng dần</option>

@@ -138,7 +138,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Đào Thị Thu Trang K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
                 </div>
             </div>
         </div>

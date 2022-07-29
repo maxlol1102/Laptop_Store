@@ -42,7 +42,7 @@
                                 <div>
                                     <form action="{{URL::to('/update-cart-quantity')}}" method="POST">
                                     {{ csrf_field() }}
-                                        <input style="width: 80px; height: 30px" class="cart_quantity_input" type="number" name="cart_quantity" value="{{$v_content->qty}}"  >
+                                        <input style="width: 80px; height: 30px" class="cart_quantity_input" type="number" min ="1" name="cart_quantity" value="{{$v_content->qty}}"  >
                                         <input type="hidden" value="{{$v_content->rowId}}" name="rowId_cart" class="form-control">
                                         <input style="width: 80px; height: 30px; font-size: 14px;" type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
                                     </form>
@@ -83,8 +83,14 @@
                             <li>Thuế VAT <span>10%</span></li>
                             <li>Phí vận chuyển <span>Free</span></li>
                             {{-- tinh tong tien phai thanh toan sau thue --}}
-                            {{-- tinh thue VAT 10% bang cong thuc (110)/100 --}}
-                            <li>Thành tiền (Đã bao gồm thuế VAT) <span>{{number_format(Cart::subtotal(null, null,'')).' '.'VND'}}</span></li>
+                          <li>Thành tiền (Đã bao gồm thuế VAT)
+                              <span>
+                              <?php
+                              $subtotal_VAT =  $subtotal + $subtotal * 0.1;
+                              echo number_format($subtotal_VAT).' '.'VND';
+                              ?>
+                              </span>
+                            </li>
                         </ul>
                             <?php
                                 $customer_id = Session::get('customer_id');

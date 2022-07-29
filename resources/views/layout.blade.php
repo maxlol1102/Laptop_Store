@@ -106,6 +106,7 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active">
+                                <a href="{{asset('/category_product/1')}}">
                                 <div class="col-sm-6">
                                     <h1><span>My</span>-COMPUTER</h1>
                                     <h2>Nơi để bạn gửi gắm niềm tin</h2>
@@ -113,31 +114,37 @@
                                     <p>Đổi trả 1:1 trong vòng 2 tháng</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/backend/img_admin/MB3.jpg')}}" class="girl img-responsive" alt="" />
                                     <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
                                 </div>
+                                </a>
                             </div>
                             <div class="item">
+                                <a href="{{asset('/category_product/2')}}">
                                 <div class="col-sm-6">
                                     <h1><span>My</span>-COMPUTER</h1>
                                     <h2>Với nhiều chương trình ưu đãi đặt biệt </h2>
                                     <p>Hỗ trợ trả góp với lãi suất 0%, cùng nhiều chương trình<br> khuyến mãi khác chỉ có tại MyCOMPUTER</p>
+                                    <p> Chào hè cực chất ngây ngất Quà Dell</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP2.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/backend/img_admin/HP1.jpg')}}" class="girl img-responsive" alt="" />
                                     <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
                                 </div>
+                                </a>
                             </div>
                             <div class="item">
+                                <a href="{{asset('/category_product/5')}}">
                                 <div class="col-sm-6">
                                     <h1><span>My</span>-COMPUTER</h1>
                                     <h2>Hỗ trợ sửa chữa các dòng máy, cam kết trả máy đúng hẹn</h2>
                                     <p></p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP3.jpg')}}" class="girl img-responsive" alt="" />
+                                    <img src="{{asset('public/backend/img_admin/AC4.jpg')}}" class="girl img-responsive" alt="" />
                                     <img src="{{asset('public/frontend/images/pricing.png')}}" class="pricing" alt="" />
                                 </div>
+                                </a>
                             </div>
                         </div>
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -202,7 +209,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Đào Thị Thu Trang K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
                 </div>
             </div>
         </div>

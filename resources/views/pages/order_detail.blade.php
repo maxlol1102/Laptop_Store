@@ -24,13 +24,13 @@
                     @foreach ($Product as $item)
                     <tr>
                         <td class="order_id" style="text-align: center">
-                            {{$item->order_product_id}}
+                            {{$item->product_code}}
                         </td>
                         <td class="order_product_img" style="text-align: center">
                             <img src="/shopmaytinh/public/backend/img_admin/{{$item->order_product_image}}" alt="" style="height: 100px;" />
                         </td>
                         <td class="order_product_name" style="text-align: center">
-                            <a href="{{URL::to('/detail_product')}}/{{$item->order_product_id}}">{{$item->order_product_name}}</a>
+                            <a href="{{URL::to('/detail_product/')}}/{{$item->product_code}}">{{$item->order_product_name}}</a>
                         </td>
                         <td class="order_qty" style="text-align: center">
                             {{$item->order_qty}}
@@ -38,6 +38,7 @@
                         <td class="order_product_price" style="text-align: center">
                             {{number_format($item->order_product_price)}} VND
                         </td>
+
                         <td class="order_total_price" style="text-align: center">
                             {{number_format($item->order_total_price)}} VND
                         </td>
