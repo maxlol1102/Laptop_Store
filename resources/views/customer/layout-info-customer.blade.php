@@ -94,6 +94,7 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
+
     <section>
         <div class="container">
             <div class="row">
@@ -103,6 +104,7 @@
             </div>
         </div>
     </section>
+
     <footer id="footer"><!--Footer-->
         <div class="footer-top">
             <div class="container">

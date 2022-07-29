@@ -4,7 +4,8 @@
     <div class="container">
         <div class="breadcrumbs" style="text-align: center">
             <ol class="breadcrumb">
-            <li class="active"><h3>QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
+
+            <li class="active"><h3 style="padding: 40px 0 0 0">QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
             </ol>
         </div>
         <div class="table-responsive cart_info">
@@ -17,8 +18,6 @@
                         <td class="order_status" style="text-align: center">Trạng thái</td>
                         <td class="order_detail" style="text-align: center">Chi tiết đơn hàng</td>
                         <td class="delete_order" style="text-align: center">Hủy đơn hàng</td>
-                        <td style="text-align: center"><a href="{{URL::to('/info-customer')}}">Thông tin của bạn</a></td>
-                        <td style="text-align: center"><a href="{{URL::to('/show-cart')}}">Giỏ hàng</a></td>
                     </tr>
                 </thead>
                 <tbody>

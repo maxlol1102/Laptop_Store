@@ -74,6 +74,8 @@
                                     } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
                                 ?>
                                     <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
+                                    <li><a href="{{URL::to('/info-customer')}}">Thông tin của bạn</a></li>
+
                                 <?php
                                     }
                                 ?>
@@ -82,7 +84,8 @@
                     </div>
                 </div>
             </div>
-        </div><!--/header_top-->
+        </div>
+        <!--/header_top-->
         <div class="header-middle"><!--header-middle-->
             <div class="container">
             </div>
