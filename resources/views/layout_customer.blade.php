@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | My-COMPUTER</title>
+    <!-- CSS only -->
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -73,8 +74,16 @@
                                 <?php
                                     } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
                                 ?>
-                                    <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
-                                    <li><a href="{{URL::to('/logout-customer')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+                                    <div class="btn-group">
+                                      <br>
+                                        <a class="btn btn-warning dropdown-toggle" href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a>
+                                        <div class="btn btn-success" data-toggle="dropdown"><i class="fa fa-long-arrow-down"></i></div>
+                                        <div class="dropdown-menu" >
+                                                <li><a href="{{URL::to('/info-customer')}}"> <i class="fa fa-info-circle"></i>Thông tin của bạn</a></li>
+                                                <li><a href="{{URL::to('/show-cart')}}"> <i class="fa fa-shopping-cart"></i>Giỏ hàng</a></li>
+                                                <li><a href="{{URL::to('/logout-customer')}}"> <i class="fa fa-lock"></i> Đăng xuất</a></li>
+                                        </div>
+                                    </div>
                                 <?php
                                     }
                                 ?>

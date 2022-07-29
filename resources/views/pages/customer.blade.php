@@ -1,5 +1,6 @@
 @extends('layout_customer')
 @section('content')
+
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs" style="text-align: center">
@@ -45,9 +46,8 @@
                         <td class="order_status" style="text-align: center">Trạng thái</td>
                         <td class="order_detail" style="text-align: center">Chi tiết đơn hàng</td>
                         <td class="delete_order" style="text-align: center">Hủy đơn hàng</td>
-                        <td style="text-align: center"><a href="{{URL::to('/info-customer')}}">Thông tin của bạn</a>
-                        </td>
-                        <td style="text-align: center"><a href="{{URL::to('/show-cart')}}">Giỏ hàng</a></td>
+
+
                     </tr>
                     </thead>
                     <tbody>
