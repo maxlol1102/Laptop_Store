@@ -7,11 +7,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/','HomeController@index');  //trieu hoi ham homectr va vao ham index
     Route::get('/trang-chu','HomeController@index');
     Route::post('/trang-chu','HomeController@index');
-    //Route::get('/trang-chu1','HomeController@category');
     Route::get('/lien-he','HomeController@index1');
     Route::get('/detail_product/{product_code}','ProductController@detail_product');
-    //Route::get('/category_product/{category_id}','ProductController@tbl_category_product');
-    //Route::post('/category_product/{category_id}','ProductController@tbl_category_product');
     Route::post('/save-cart','CartController@save_cart');
     Route::get('/show-cart','CartController@show_cart');
     Route::post('/show-cart','CartController@show_cart');
@@ -19,9 +16,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('/update-cart-quantity','CartController@update_cart_quantity');
     //categoryproduct
         Route::get('/category_product/{category_id}','ProductController@category');
-        // Route::get('/add-category-product','CategoryProduct@add_category_product');
-        // Route::get('/all-category-product','CategoryProduct@all_category_product');// _ham thi _s
-        // Route::post('/save-category-product','CategoryProduct@save_category_product');
 //end frontend
 
 

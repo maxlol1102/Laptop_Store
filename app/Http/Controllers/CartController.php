@@ -18,7 +18,6 @@ class CartController extends Controller
         $quantity = $request->qty;
         $product_info = DB::table('tbl_product')->where('code',$productId)->first();//lay tat ca cac thong tin dua vao id
 
-        //Cart::add('293ad', 'Product 1', 1, 9.99, 550);
         //Cart::destroy();//huy phien session
         $data['id'] = $product_info->code;
         $data['qty'] = $quantity;

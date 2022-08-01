@@ -11,7 +11,7 @@
             <table style="width: 100%;" class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
-                        <td class="order_id" style="text-align: center">Mã sản phẩm</td>
+                        <td class="order_id" style="text-align: center">Mã hóa đơn</td>
                         <td class="order_day" style="text-align: center">Hình ảnh</td>
                         <td class="order_total_price" style="text-align: center">Tên sản phẩm</td>
                         <td class="order_status" style="text-align: center">Số lượng</td>
@@ -24,10 +24,10 @@
                     @foreach ($Product as $item)
                     <tr>
                         <td class="order_id" style="text-align: center">
-                            {{$item->product_code}}
+                            {{$item->order_id}}
                         </td>
                         <td class="order_product_img" style="text-align: center">
-                            <img src="/shopmaytinh/public/backend/img_admin/{{$item->order_product_image}}" alt="" style="height: 100px;" />
+                            <img src="/public/backend/img_admin/{{$item->order_product_image}}" alt="" style="height: 100px;" />
                         </td>
                         <td class="order_product_name" style="text-align: center">
                             <a href="{{URL::to('/detail_product/')}}/{{$item->product_code}}">{{$item->order_product_name}}</a>

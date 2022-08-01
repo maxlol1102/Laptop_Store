@@ -41,6 +41,7 @@ class StatisticalController extends Controller
                 Session::put('value', $search);
                 $orders = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
+                ->orderBy('order_day')
                 ->where('orders.order_status', 2)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
                 return view('admin.statistical.don-hang-da-ban', compact('orders'));
             }
