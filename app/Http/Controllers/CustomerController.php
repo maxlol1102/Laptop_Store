@@ -57,6 +57,7 @@ class CustomerController extends Controller
         public function orderHistory($customer_id) {
             $customer = DB::table('tbl_customer')->where('customer_id', $customer_id)->get();
             $history = DB::table('orders')
+            ->orderBy('order_day')
             ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')->where('orders.customer_id', $customer_id)->select('*')->orderBy('orders.order_status', 'asc')->paginate(10);
             return view('admin.order-history', compact('history', 'customer'));
         }
@@ -230,7 +231,9 @@ class CustomerController extends Controller
         // trang quan ly don hang cua khach hang
         public function customer() {
             $customer_id = Session::get('customer_id');
-            $Product = DB::table('orders')->where('customer_id', $customer_id)->select('*')->get();
+            $Product = DB::table('orders')
+                ->orderBy('order_day')
+                ->where('customer_id', $customer_id)->select('*')->get();
             return view('pages.customer', compact('Product'));
         }
         // trang thong tin cua khach hang

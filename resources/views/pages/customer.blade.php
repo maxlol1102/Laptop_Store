@@ -13,41 +13,11 @@
                     <thead>
                     <tr class="cart_menu">
                         <td class="order_id" style="text-align: center">Mã đơn hàng</td>
-                        <td class="order_day" style="text-align: center"> Ngày đặt hàng
-                                                        <?php
-                                                        $value = Session::get('value');
-                                                        if($value) {
-                                                        ?>
-                                                        Ngày đặt hàng
-                                                        <?php Session::put('value', null);
-                                                        } else {
-                                                        ?>
-                                                        <div>
-                                                            <form id="sap_xep_gia" method="GET">
-                                                                <select name="asc_desc" class="asc_desc">
-                                                                    <option selected="selected">Date</option>
-                                                                    <option value="asc">Cũ nhất </option>
-                                                                    <option value="desc">Mới nhất</option>
-                                                                </select>
-                                                            </form>
-                                                            <script>
-                                                                $(function() {
-                                                                    $('.asc_desc').change(function() {
-                                                                        $('#sap_xep_gia').submit();
-                                                                    })
-                                                                })
-                                                            </script>
-                                                        </div><br>
-                                                        <?php
-                                                            }
-                                                        ?>
-                        </td>
+                        <td class="order_day" style="text-align: center"> Ngày đặt hàng</td>
                         <td class="order_total_price" style="text-align: center">Tổng tiền (chưa bao gôm thuế VAT)</td>
                         <td class="order_status" style="text-align: center">Trạng thái</td>
                         <td class="order_detail" style="text-align: center">Chi tiết đơn hàng</td>
                         <td class="delete_order" style="text-align: center">Hủy đơn hàng</td>
-
-
                     </tr>
                     </thead>
                     <tbody>

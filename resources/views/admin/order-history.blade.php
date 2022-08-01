@@ -11,9 +11,9 @@
         <thead>
         <tr>
             <th style="text-align: center">STT</th>
-            <th style="text-align: center">Mã khách hàng</th>
-            <th style="text-align: center">Tên khách hàng</th>
             <th style="text-align: center">Mã đơn hàng</th>
+            <th style="text-align: center">Tên khách hàng</th>
+            <th style="text-align: center">Số điện thoại</th>
             <th style="text-align: center">Ngày đặt hàng</th>
             <th style="text-align: center">Trạng thái</th>
             <th style="text-align: center">Chức năng</th>
@@ -26,9 +26,9 @@
                 <td style="text-align: center">
                     <?php $i++; echo $i; ?>
                 </td>
-                <td style="text-align: center">{{$item->customer_id}}</td>
-                <td style="text-align: center">{{$item->customer_name}}</td>
                 <td style="text-align: center">{{$item->order_id}}</td>
+                <td style="text-align: center">{{$item->customer_name}}</td>
+                <td style="text-align: center">{{$item->customer_phone}}</td>
                 <td style="text-align: center">{{$item->order_day}}</td>
                 <td style="text-align: center">
                     <?php
