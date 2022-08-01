@@ -1,18 +1,25 @@
 @extends('layout-cart')
 @section('content')
 <section id="cart_items">
-    <div class="container">
+    <div class="container" style="padding-top: 30px">
         <div class="breadcrumbs" style="text-align: center">
             <ol class="breadcrumb">
-            <li class="active"><h3>GIỎ HÀNG CỦA BẠN</h3></li>
+            <li class="active"><h3 style="font-size: 30px">GIỎ HÀNG CỦA BẠN</h3></li>
             </ol>
         </div>
+
         <div class="table-responsive cart_info">
             <?php
                 $Product = Cart::content();//lay tat ca nhung gi da them vao gio hang
                 if(Cart::subtotal(null, null, '') == 0) {
                     // an table san pham da them
-                    echo "<h5 style = 'text-align: center;'><font color = 'red'>Bạn chưa có sản phẩm nào trong giỏ hàng!</font></h5>";
+
+                    echo "
+                        <img src='https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png' style='text-align: center; width: 710px; height: 350px; padding-left: 400px'>
+                        <h5 style = 'text-align: center; font-size: 24px; font-family:Calibri; color: red'>Your Cart is Empty !</h5>
+                        <a href='' class='btn btn-primary' style='border-radius:4px; padding: 12px; font-family: Calibri; font-size: 16px; margin: 10px 0 10px 490px'> Continue Shopping!</a>
+
+                    ";
                 } else {
             ?>
                 <table style="width: 100%;" class="table table-condensed">
@@ -113,4 +120,5 @@
         </div>
     </div>
 </section><!--/#do_action-->
+<br>
 @endsection

@@ -14,9 +14,23 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+        *{
+            font-family: Calibri;
+        }
+        p{
+            font-size: 18px;
+        }
+        p.indent{
+            text-indent: 50px;
+        }
         .productinfo img{
             height: 200px;
         }
+        ul li{
+            list-style-type: square;
+            font-size: 18px;
+        }
+
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('public/frontend/1.jpg')}}">
@@ -27,14 +41,13 @@
 </head><!--/head-->
 <body style="background-color: #FFFFFF;">
     <header class="" id="header"><!--header-->
-        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;"><!--header_top-->
+        <div class="header_top" style="position: fixed;z-index: 13;width: 100%; padding-bottom: 5px"><!--header_top-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
                             <ul class="nav navbar-nav">
                                 <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li><a href="{{url('/lien-he')}}">Thông tin liên hệ</a></li>
                             </ul>
                             <div style="text-align: center">
                                 <!-- Search form -->
@@ -85,98 +98,86 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-    <section id="slider"><!--slider-->
-        <div class="container" style="height: 0px;">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators" style="z-index: 1">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Nơi để bạn gửi gắm niềm tin</h2>
-                                    <p>Cam kết hoàn tiền nếu có lỗi từ sản phẩm</p>
-                                    <p>Đổi trả 1:1 trong vòng 2 tháng</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Với nhiều chương trình ưu đãi đặt biệt </h2>
-                                    <p>Hỗ trợ trả góp với lãi suất 0%, cùng nhiều chương trình<br> khuyến mãi khác chỉ có tại MyCOMPUTER</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP2.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Hỗ trợ sửa chữa các dòng máy, cam kết trả máy đúng hẹn</h2>
-                                    <p></p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/frontend/images/HP3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}" class="pricing" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/slider-->
+    {{--Đoạn Giới thiệu--}}
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="left-sidebar">
-                    <!-- Hiển thị danh mục -->
-                        <h2>Hãng</h2>
-                        <div style="text-align: center" class="panel-group category-products" id="accordian"><!--category-productsr-->
-                            @foreach($category as $cg)
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h5 class="">
-                                        <a href="{{asset('/category_product')}}/{{$cg->category_name}}">{{$cg->category_name}}</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div><!--/category-products-->
-                    </div>
-                </div>
-                <!-- Hiển thị tất cả sản phẩm -->
-                <div class="col-sm-9 padding-right">
-                @yield('content')
-                </div>
-            </div>
+        <img src="https://jobsgo.vn/blog/wp-content/uploads/2021/05/sinh-vien-nen-mua-laptop-nao-1.jpg" style="width: 1000px; height: 500px; padding-top: 30px; margin-left: 190px">
+        <h1 style="margin-top: 80px; text-align: center"> GIỚI THIỆU VỀ MY-LAPTOP</h1>
+        <div style=" margin: 40px 200px 100px 200px">
+            {{--Đoạn 1--}}
+            <h2 style="padding-top: 20px">Giới thiệu chung</h2>
+            <p class="indent">
+                Cửa hàng MY-LAPTOP chuyên cung cấp các sản phẩm công nghệ chính hãng tại thị trường Việt Nam. Với khẩu hiệu “Nếu những gì chúng tôi không có, nghĩa là bạn không cần”, chúng tôi đã, đang và sẽ tiếp tục nỗ lực đem đến các sản phẩm công nghệ chính hãng đa dạng, phong phú đi kèm mức giá tốt nhất phục vụ nhu cầu của quý khách hàng.
+            </p>
+
+            {{--Đoạn 2--}}
+            <h2 style="padding-top: 10px">Tôn chỉ hoạt động</h2>
+            <p class="indent">
+                MY-LAPTOP luôn hoạt động dựa trên tôn chỉ đặt khách hàng là trung tâm, mọi nỗ lực để đạt được mục tiêu cao nhất là làm hài lòng người dùng thông qua các sản phẩm được cung cấp và dịch vụ khách hàng. MY-LAPTOP đang từng bước xây dựng dịch vụ khách hàng vượt trội, xứng đáng là đơn vị bán lẻ hàng đầu tại Việt Nam. Sự tin tưởng và ủng hộ nhiệt tình của quý khách hàng tại chuỗi chi nhánh đã phần nào khẳng định hiệu quả hoạt động của đội ngũ nhân viên chúng tôi.
+            </p>
+            <ul>
+                <li>
+                    Đối với quý khách hàng, chúng tôi luôn đặt cái tâm làm gốc, làm việc với tinh thần nghiêm túc, trung thực và có trách nhiệm, để mang tới trải nghiệm dịch vụ tốt nhất.
+                </li>
+                <li>
+                    Đối với đồng nghiệp, chúng tôi đề cao văn hóa học hỏi, đoàn kết, tương trợ lẫn nhau tạo nên môi trường làm việc tôn trọng - công bằng - văn minh cho nhân viên trong công ty.
+                </li>
+                <li>
+                    Đối với các đối tác, MY-LAPTOP luôn làm việc dựa trên nguyên tắc tôn trọng, cùng tạo ra giá trị cho cộng đồng và cùng phát triển bền vững.
+                </li>
+            </ul>
+            {{--Đoạn 3--}}
+            <h2 style="padding-top: 10px">Tầm nhìn và sứ mệnh</h2>
+            <p class="indent">
+                Những năm qua, chúng tôi không ngừng cải thiện dịch vụ tại các chi nhánh và hỗ trợ khách hàng qua các kênh online. MY-LAPTOP cam kết mang đến những sản phẩm chất lượng và chế độ bảo hành uy tín, sẵn sàng hỗ trợ khách hàng trong thời gian nhanh nhất.
+            </p>
+            <p>
+                Trong tương lai, MY-LAPTOP sẽ tiếp tục mở rộng hệ thống chi nhánh, hướng tới mục tiêu có mặt tại 63 tỉnh thành trên toàn quốc. Đồng thời, nâng cao chất lượng dịch vụ, hạn chế những rủi ro, lắng nghe và tiếp thu góp ý của quý khách hàng nhằm đem đến trải nghiệm tốt nhất khi mua sắm tại MY-LAPTOP.
+            </p>
+            <p>
+                Cuối cùng, MY-LAPTOP hy vọng sẽ trở thành nhà tiên phong đưa những sản phẩm công nghệ mới nhất đến tay người dùng sớm nhất, tạo ra cuộc sống hiện đại nơi công nghệ kết nối con người, công nghệ phục vụ con người
+            </p>
+            {{--Đoạn 4--}}
+            <h1 style="margin-top: 80px; text-align: center"> HỢP TÁC KINH DOANH</h1>
+            {{--p1--}}
+            <h2 style="padding-top: 30px; font-size: 20px">Mọi thông tin liên hệ hợp tác, cho thuê mặt bằng vui lòng liên hệ:</h2>
+            <ul>
+                <li><strong>Mrs.Trang Dao</strong></li>
+                <li>Email: <i style="color: red">daotrang2001@gmail.com</i></li>
+            </ul>
+            {{--p2--}}
+            <h3 style="font-size: 18px">Hợp tác với các kênh video:</h3>
+            <ul>
+                <li><strong>Mr.Vu</strong></li>
+                <li>Email: <i style="color: red">cnv@gmail.com</i></li>
+            </ul>
+            {{--p3--}}
+            <h3 style="font-size: 18px">Mua hàng doanh nghiệp:</h3>
+            <ul>
+                <li><strong>Gọi miễn phí: <i style="color: red">1800.2097</i> (Miền Nam) hoặc <i style="color: red">1800.2044</i> (Miền Bắc)</strong></li>
+                <li>Email: <i style="color: red">cskh@MYLAPTOP.com.vn</i></li>
+            </ul>
+            <h3 style="font-size: 18px">Địa chỉ:</h3>
+            <ul>
+                <li> Nhà A1717 P. Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội</li>
+                <li style="list-style-type: none"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.739639456053!2d105.84826060865315!3d21.00307128746092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659363376200!5m2!1svi!2s" width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
+            </ul>
+
+            <h1 style="margin-top: 80px; font-size: 22px;"> <i style="color: red">MY-LAPTOP</i> xin cảm ơn và và kính mong hợp tác.</h1>
         </div>
     </section>
+
+
     <footer id="footer"><!--Footer-->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div class="companyinfo">
+                        <div class="companyinfo" style="width: 210px">
                             <h2><span>My</span>-COMPUTER</h2>
-                            <p>Thỏa mãn đam mê theo cách của bạn</p>
+                            <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
+                        </div>
+                        <div>
+                            <a href="{{url('/lien-he')}}">Thông tin liên hệ</a>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -184,7 +185,7 @@
                     <div class="col-sm-3"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
+                            <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
                         </div>
                     </div>
                 </div>
@@ -193,7 +194,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="" style="text-align: center">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
                 </div>
             </div>
         </div>

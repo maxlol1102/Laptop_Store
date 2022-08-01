@@ -27,14 +27,13 @@
 </head><!--/head-->
 <body style="background-color: #FFFFFF;">
     <header id="header"><!--header-->
-        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;"><!--header_top-->
+        <div class="header_top" style="position: fixed;z-index: 13;width: 100%; padding-bottom: 5px"><!--header_top-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
                             <ul class="nav navbar-nav">
                                 <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li><a href="{{url('/lien-he')}}">Thông tin liên hệ</a></li>
                             </ul>
                             <div style="text-align: center">
                                 <!-- Search form -->
@@ -96,69 +95,7 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-    <section id="slider"><!--slider-->
-        <div class="container" style="height: 250px;">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators" style="z-index: 1">
-                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#slider-carousel" data-slide-to="1"></li>
-                            <li data-target="#slider-carousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <a href="{{asset('/category_product/1')}}">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Nơi để bạn gửi gắm niềm tin</h2>
-                                    <p>Cam kết hoàn tiền nếu có lỗi từ sản phẩm</p>
-                                    <p>Đổi trả 1:1 trong vòng 2 tháng</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/backend/img_admin/MB3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="{{asset('/category_product/2')}}">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Với nhiều chương trình ưu đãi đặt biệt </h2>
-                                    <p>Hỗ trợ trả góp với lãi suất 0%, cùng nhiều chương trình<br> khuyến mãi khác chỉ có tại MyCOMPUTER</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/backend/img_admin/HP1.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="{{asset('/category_product/5')}}">
-                                <div class="col-sm-6">
-                                    <h1><span>My</span>-COMPUTER</h1>
-                                    <h2>Hỗ trợ sửa chữa các dòng máy, cam kết trả máy đúng hẹn</h2>
-                                    <p></p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{asset('public/backend/img_admin/AC4.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{asset('public/frontend/images/pricing.png')}}" class="pricing" alt="" />
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                        <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/slider-->
+
     <section>
         <div class="container">
             <div class="row">
@@ -170,22 +107,26 @@
         </div>
     </section>
     <footer id="footer"><!--Footer-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div class="companyinfo">
+                        <div class="companyinfo" style="width: 210px">
                             <h2><span>My</span>-COMPUTER</h2>
-                            <p>Thỏa mãn đam mê theo cách của bạn</p>
+                            <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
+                        </div>
+                        <div>
+                            <a href="{{url('/lien-he')}}">Thông tin liên hệ</a>
                         </div>
                     </div>
                     <div class="col-sm-7">
-
                     </div>
                     <div class="col-sm-3"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
+                            <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
                         </div>
                     </div>
                 </div>
@@ -194,11 +135,12 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">
-                    <p class="" style="text-align: center">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
                 </div>
             </div>
         </div>
     </footer><!--/Footer-->
+
     <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>

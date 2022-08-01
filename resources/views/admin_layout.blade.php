@@ -155,6 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         @yield('admin_content')  {{-- // goi ra tu dashboard.blade.php --}}
     </section>
 <!-- footer -->
+
         <div class="footer" style="background: #626262; text-align: center">
             <div class="wthree-copyright">
             <p>Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>

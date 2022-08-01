@@ -28,14 +28,14 @@
 </head><!--/head-->
 <body style="background-color: #FFFFFF;">
     <header id="header"><!--header-->
-        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;"><!--header_top-->
+        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;; padding-bottom: 5px"><!--header_top-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
                             <ul class="nav navbar-nav">
                                 <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li><a href="{{url('/lien-he')}}">Thông tin liên hệ</a></li>
+
                             </ul>
                             <div style="text-align: center">
                                 <!-- Search form -->
@@ -106,30 +106,38 @@
     <section>
         <div class="container">
             <div class="row">
+                <br>
                 <!-- Hiển thị tất cả sản phẩm -->
                 <div class="col-sm-9 padding-right">
+                    <br>
                 @yield('content')
                 </div>
             </div>
         </div>
     </section>
+    <br>
+    <hr>
     <footer id="footer"><!--Footer-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div class="companyinfo">
+                        <div class="companyinfo" style="width: 210px">
                             <h2><span>My</span>-COMPUTER</h2>
-                            <p>Thỏa mãn đam mê theo cách của bạn</p>
+                            <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
+                        </div>
+                        <div>
+                            <a href="{{url('/lien-he')}}">Thông tin liên hệ</a>
                         </div>
                     </div>
                     <div class="col-sm-7">
-
                     </div>
                     <div class="col-sm-3"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
+                            <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
                         </div>
                     </div>
                 </div>
