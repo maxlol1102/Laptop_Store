@@ -14,7 +14,10 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
-       a{
+       *{
+           font-family: "Lato", sans-serif;
+       }
+        a{
            color: black;
        }
         .productinfo img{
@@ -148,7 +151,7 @@
             </div>
         </div><!--/header_top-->
         <br><br>
-        <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 50px">
+        <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
             <div class="container" style="height: 50px;">
                 <ul id="header_bar">
                     <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
@@ -270,20 +273,17 @@
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <style>
-                body {font-family: "Lato", sans-serif}
-                .mySlides {display: none}
-            </style>
+           
         </head>
         <body>
 
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <div class="w3-container w3-content w3-padding-60" style="max-width:800px" id="contact">
             <h1 class="w3-wide w3-center">CONTACT</h1>
             <p class="w3-opacity w3-center"><i>Nếu bạn có thắc mắc gì? Hãy điền vào form bên dưới, để chúng tôi có thể giúp bạn một cách sớm nhất!</i></p>
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
                     <i class="fa fa-map-marker" style="width:30px"></i> Hà Nội, VietNam<br>
-                    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+                    <i class="fa fa-phone" style="width:30px"></i> Phone: 0167.899.999<br>
                     <i class="fa fa-envelope" style="width:30px"> </i> Email: cskh@MYLAPTOP.com.vn<br>
                 </div>
                 <div class="w3-col m6">
