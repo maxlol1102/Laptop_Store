@@ -14,9 +14,68 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+       a{
+           color: black;
+       }
         .productinfo img{
             height: 200px;
         }
+        /*Search btn*/
+        .search {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        .searchTerm {
+            width: 100%;
+            border: 3px solid #FE980F;
+            border-right: none;
+            padding: 5px;
+            height: 36px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            color: #9DBFAF;
+        }
+
+        .searchTerm:focus{
+            color: #FE980F;
+        }
+
+        .searchButton {
+            width: 40px;
+            height: 36px;
+            border: 1px solid #FE980F;
+            background: #FE980F;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /*Resize the wrap to see the search bar change!*/
+        .wrap{
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /*end*/
+
+        #header_bar{
+            padding-top: 15px;
+            width: 150px;
+            height: 50px;
+            color: #FFFFFF;
+            font-size: 16px;
+        }
+        #header_bar:hover{
+            background-color: #FFFFFF;
+        }
+
+
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('public/frontend/1.jpg')}}">
@@ -32,21 +91,25 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
-                            <ul class="nav navbar-nav">
-                                <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-
-                            </ul>
+                            <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px" ">
                             <div style="text-align: center">
                                 <!-- Search form -->
                                 <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
-                                    <input type="hidden" name="_token" value="{{ csrf_token()}}"> {{-- khong chuyen trang sau khi load form --}}
-                                    <input style="text-align: center" name="search" class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm sản phẩm" aria-label="Search" value="<?php
-                                        $value = Session::get('value');
-                                        if($value) {
-                                            echo $value;
-                                            Session::put('value', null);
-                                        }
-                                    ?>">
+                                    <div class="wrap">
+                                        <div class="search">
+                                            <input type="hidden" name="_token" value="{{ csrf_token()}}"> {{-- khong chuyen trang sau khi load form --}}
+                                            <input  class="searchTerm"  style="text-align: center" name="search" type="text" placeholder="Tìm kiếm sản phẩm" aria-label="Search" value="<?php
+                                                $value = Session::get('value');
+                                                if($value) {
+                                                    echo $value;
+                                                    Session::put('value', null);
+                                                }
+                                            ?>">
+                                            <button type="submit" class="searchButton">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </form>
                                 <?php
                                     foreach ($Product as $value) {}
@@ -67,7 +130,7 @@
                                     $customer_id = Session::get('customer_id');
                                     if($customer_id == null) {
                                 ?> {{-- neu kh chua login thi chuyen den trang login --}}
-                                    <li><a href="{{URL::to('/signin')}}"><i class="fa fa-lock"></i> Đăng nhập Khách hàng</a></li>
+                                    <li><a href="{{URL::to('/signin')}}"><i class="fa fa-user"></i> Đăng nhập Khách hàng</a></li>
                                     <li><a href="{{url('/admin-login')}}"><i class="fa fa-lock"></i> Đăng nhập Admin</a></li>
                                     <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <?php
@@ -85,8 +148,11 @@
             </div>
         </div><!--/header_top-->
         <br><br>
-        <div class="header-middle"><!--header-middle-->
-            <div class="container">
+        <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 50px">
+            <div class="container" style="height: 50px;">
+                <ul id="header_bar">
+                    <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
+                </ul>
             </div>
         </div><!--/header-middle-->
         <div class="header-bottom"><!--header-bottom-->
@@ -95,6 +161,7 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
+
     <section id="slider"><!--slider-->
         <div class="container" style="height: 0px;">
             <div class="row">
@@ -149,10 +216,10 @@
                             </div>
                         </div>
                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                            <i class="fa fa-angle-left"></i>
+                            <i class="fa fa-angle-left" style="color: #FE980F"></i>
                         </a>
                         <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                            <i class="fa fa-angle-right"></i>
+                            <i class="fa fa-angle-right" style="color: #FE980F"></i>
                         </a>
                     </div>
                 </div>
@@ -194,7 +261,6 @@
     <hr>
     <footer id="footer"><!--Footer-->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -203,13 +269,27 @@
                             <h2><span>My</span>-COMPUTER</h2>
                             <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
                         </div>
-                        <div>
-                            <a href="{{url('/lien-he')}}">Thông tin liên hệ</a>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="companyinfo" style="margin-left: 150px;">
+                            <p style="font-size: 16px; color: black; font-weight: bold"> Menu</p>
+                                <a href="{{url('/trang-chu')}}" class="active" style="color: black">Trang chủ</a>
                         </div>
                     </div>
-                    <div class="col-sm-7">
+
+                    <div class="col-sm-4">
+                        <div class="companyinfo" style="margin-left: 100px">
+                            <a href="{{url('/lien-he')}}" style="font-size: 16px; color: black; font-weight: bold">Thông tin liên hệ</a>
+                            <p style="color: black">
+                                Quang Bửu-Hà Nội<br>
+                                <i class="fa fa-phone"></i> 0167.899.999<br>
+                                <i class="fa fa-envelope"></i> cskh@MYLAPTOP.com.vn
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-3"style="width: 21%;">
+
+                    <div class="col-sm-5"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
                             <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>

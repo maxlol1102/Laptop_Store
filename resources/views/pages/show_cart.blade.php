@@ -1,10 +1,11 @@
 @extends('layout-cart')
 @section('content')
+    <br>
 <section id="cart_items">
-    <div class="container" style="padding-top: 30px">
+    <div class="container" >
         <div class="breadcrumbs" style="text-align: center">
             <ol class="breadcrumb">
-            <li class="active"><h3 style="font-size: 30px">GIỎ HÀNG CỦA BẠN</h3></li>
+            <li class="active"><h3 style="font-size: 40px">GIỎ HÀNG CỦA BẠN</h3></li>
             </ol>
         </div>
 
@@ -79,12 +80,12 @@
 <section id="do_action">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6" >
                 <?php
                     if(Cart::subtotal(null, null, '') == 0) { // an form dat hang
                     } else {
                 ?>
-                    <div class="total_area">
+                    <div class="total_area" style="background-color: #f5f5f5">
                         <ul>
                             <li>Tổng tiền <span>{{number_format(Cart::subtotal(null, null,'')).' '.'VND'}}</span></li>
                             <li>Thuế VAT <span>10%</span></li>
@@ -108,17 +109,27 @@
                                 } else {
                             ?>
                                 <input type="hidden" name="id_customer_hidden" value="<?php echo $customer_id; ?>">
-                                <a class="btn btn-default check_out" href="{{URL::to('/save-order')}}">Đặt hàng</a>
+                                <a class="btn btn-default check_out" style="font-weight: bold; font-size: 16px; border-radius: 10px; padding: 10px 15px 10px 15px; margin-left: 60px;" href="{{URL::to('/save-order')}}">Đặt hàng</a>
+                                <a class="btn btn-default check_out" style="font-weight: bold; font-size: 16px; border-radius: 10px; padding: 10px" href="{{url('/trang-chu')}}"">Continue Shopping!</a>
                             <?php
                                 }
                             ?>
                     </div>
-                <?php
-                    }
-                ?>
             </div>
+
+            <div class="col-sm-6">
+                <div class="total_area" style="background-color: #333333;text-transform: uppercase;font-size: 22px;color: #FFFFFF; padding-left: 50px;letter-spacing: 1.5px; font-weight: bold">
+                    <p><i class="fa fa-truck" style="color: #FE980F"></i> Giao hàng miễn phí</p>
+                    <p><i class="fa fa-clock-o" style="color: #FE980F"></i> Thanh toán khi nhận hàng</p>
+                    <p><i class="fa fa-phone" style="color: #FE980F"></i> Hỗ trợ 24/7</p>
+                </div>
+            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </section><!--/#do_action-->
 <br>
+
 @endsection
