@@ -1,5 +1,7 @@
 @extends('admin_layout')  {{-- trang nay de lay giao dien --}}
 @section('admin_content')  {{-- con day la phan code cua tung trang  --}}
+
+{{--Doanh thu thang--}}
 <div class="panel panel-default">
     <div class="panel-heading">
         Doanh thu tháng
@@ -32,6 +34,9 @@
             </tr>
         </tbody>
     </table>
+
+
+{{--Doanh thu nam--}}
     <div class="panel-heading">
         Doanh thu năm
     </div>
@@ -51,24 +56,26 @@
             @endforeach
         </tbody>
     </table>
-    <div class="panel-heading">
-        Lịch sử
-    </div>
-    <table class="table table-striped table-bordered">
-        <thead style="">
-        </thead>
-        <tbody>
-            @foreach ($history as $item)
-            <tr>
-                <td style="text-align: center"><b>Doanh thu tháng</b> ({{$item->thang}})</td>
-                <td style="text-align: center">{{number_format($item->tong_doanh_thu)}} VND</td>
-                <td style="text-align: center"><b>Tổng số đơn hàng đã bán tháng </b> ({{$item->thang}})</td>
-                <td style="text-align: center">{{$item->tong_don_hang}}</td>
-                <td style="text-align: center"><a href="{{URL::to('/lich-su-chi-tiet-doanh-thu')}}/{{$item->thang}}">Chi tiết</a></td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+
+{{--        Lich su--}}
+{{--    <div class="panel-heading">--}}
+{{--        Lịch sử--}}
+{{--    </div>--}}
+{{--    <table class="table table-striped table-bordered">--}}
+{{--        <thead style="">--}}
+{{--        </thead>--}}
+{{--        <tbody>--}}
+{{--            @foreach ($history as $item)--}}
+{{--            <tr>--}}
+{{--                <td style="text-align: center"><b>Doanh thu tháng</b> ({{$item->thang}})</td>--}}
+{{--                <td style="text-align: center">{{number_format($item->tong_doanh_thu)}} VND</td>--}}
+{{--                <td style="text-align: center"><b>Tổng số đơn hàng đã bán tháng </b> ({{$item->thang}})</td>--}}
+{{--                <td style="text-align: center">{{$item->tong_don_hang}}</td>--}}
+{{--                <td style="text-align: center"><a href="{{URL::to('/lich-su-chi-tiet-doanh-thu')}}/{{$item->thang}}">Chi tiết</a></td>--}}
+{{--            </tr>--}}
+{{--            @endforeach--}}
+{{--        </tbody>--}}
+{{--    </table>--}}
     </div>
     <footer class="panel-footer">
     <div class="row">

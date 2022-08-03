@@ -53,5 +53,8 @@
 <?php
     Session::put('paginate', null); }
 ?>
+
 </div><!--features_items-->
 @endsection
+
+
