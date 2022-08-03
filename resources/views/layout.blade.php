@@ -192,7 +192,51 @@
     </section>
     <br>
     <hr>
+
     <footer id="footer"><!--Footer-->
+
+        <!-- The Contact Section -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+                body {font-family: "Lato", sans-serif}
+                .mySlides {display: none}
+            </style>
+        </head>
+        <body>
+
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+            <h1 class="w3-wide w3-center">CONTACT</h1>
+            <p class="w3-opacity w3-center"><i>Nếu bạn có thắc mắc gì? Hãy điền vào form bên dưới, để chúng tôi có thể giúp bạn một cách sớm nhất!</i></p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker" style="width:30px"></i> Hà Nội, VietNam<br>
+                    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> Email: cskh@MYLAPTOP.com.vn<br>
+                </div>
+                <div class="w3-col m6">
+                    <form action="{{url('/')}}" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                            </div>
+                        </div>
+                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Content -->
+
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         <div class="footer-top">
@@ -220,12 +264,22 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
+                <!-- Footer -->
                 <div class="row">
-                    <p class="" style="text-align: center;">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+                    <div class="w3-center w3-opacity w3-large">
+                        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                        <i class="fa fa-instagram w3-hover-opacity"></i>
+                        <i class="fa fa-snapchat w3-hover-opacity"></i>
+                        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                        <i class="fa fa-twitter w3-hover-opacity"></i>
+                        <i class="fa fa-linkedin w3-hover-opacity"></i>
+                    </div>
+                    <p class="" style="text-align: center; padding-top: 5px">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
                 </div>
             </div>
         </div>
     </footer><!--/Footer-->
+
     <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>

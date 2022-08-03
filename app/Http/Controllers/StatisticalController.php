@@ -61,6 +61,28 @@ class StatisticalController extends Controller
         $db_order = DB::table('orders')->where('order_id', $request->order_id)->select('*')->get();
         return view('admin.statistical.chi-tiet-don-hang', compact('db_order_detail','db_order', 'db_join'));
     }
+
+    public function getMonthlySum(Carbon $date)
+    {
+        $year = $date->year;
+        $month = $date->month;
+
+        if ($month < 10) {
+            $month = '0' . $month;
+        }
+
+        $search = $year . '-' . $month;
+
+        $orders = parent::where('date', 'like', $search .'%')->get();
+
+        $sum = 0;
+        foreach ($orders as $order) {
+            $sum += $orders->order;
+        }
+
+        return $sum;
+    }
+
     public function doanhThu(Request $request) {
         // lay thang hien tai
         $currentMonth = Carbon::now()->month;

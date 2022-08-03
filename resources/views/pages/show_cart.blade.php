@@ -17,8 +17,7 @@
                     echo "
                         <img src='https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png' style='text-align: center; width: 710px; height: 350px; padding-left: 400px'>
                         <h5 style = 'text-align: center; font-size: 24px; font-family:Calibri; color: red'>Your Cart is Empty !</h5>
-                        <a href='' class='btn btn-primary' style='border-radius:4px; padding: 12px; font-family: Calibri; font-size: 16px; margin: 10px 0 10px 490px'> Continue Shopping!</a>
-
+                        <a href='./trang-chu' class='btn btn-primary' style='border-radius:4px; padding: 12px; font-family: Calibri; font-size: 16px; margin: 10px 0 10px 490px'> Continue Shopping!</a>
                     ";
                 } else {
             ?>
