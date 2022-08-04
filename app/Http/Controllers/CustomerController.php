@@ -119,7 +119,7 @@ class CustomerController extends Controller
                         Session::put('value', $search);
                         $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                -> orderBy('order_day')
+                ->orderBy('order_day')
                 ->where('orders.order_status', 2)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
                         return view('admin.order_manager_successfully', compact('db'));
                     }
@@ -128,6 +128,7 @@ class CustomerController extends Controller
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
                 ->where('order_status', 2)->select('*')->get();
                 return view('admin.order_manager_successfully', compact('db'));
+
             }
         // huy don hang
             public function cancelOrder($order_id) {

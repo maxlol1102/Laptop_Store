@@ -68,16 +68,19 @@
         /*end*/
 
         #header_bar{
-            padding-top: 15px;
-            width: 150px;
-            height: 50px;
+            padding: 10px 0;
+            width: 200px;
             color: #FFFFFF;
-            font-size: 16px;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+            display: inline-block;
         }
         #header_bar:hover{
             background-color: #FFFFFF;
+            color: #d58512;
         }
-
 
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
@@ -94,7 +97,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
-                            <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px" ">
+                            <a href="{{URL::to('/trang-chu')}}">
+                            <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px">
+                            </a>
                             <div style="text-align: center">
                                 <!-- Search form -->
                                 <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
@@ -155,6 +160,12 @@
             <div class="container" style="height: 50px;">
                 <ul id="header_bar">
                     <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
+                </ul>
+                <ul id="header_bar">
+                    <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
+                </ul>
+                <ul id="header_bar">
+                    <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
                 </ul>
             </div>
         </div><!--/header-middle-->
@@ -242,7 +253,7 @@
                             @foreach($category as $cg)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h5 class="">
+                                    <h5 class="" style="color: black; font-weight: bold;">
                                         <a href="{{asset('/category_product')}}/{{$cg->category_id}}">{{$cg->category_name}}</a>
                                     </h5>
                                 </div>
@@ -278,7 +289,7 @@
         <body>
 
         <div class="w3-container w3-content w3-padding-60" style="max-width:800px" id="contact">
-            <h1 class="w3-wide w3-center">CONTACT</h1>
+            <h1 class="w3-wide w3-center" style="font-weight: bold">CONTACT</h1>
             <p class="w3-opacity w3-center"><i>Nếu bạn có thắc mắc gì? Hãy điền vào form bên dưới, để chúng tôi có thể giúp bạn một cách sớm nhất!</i></p>
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
