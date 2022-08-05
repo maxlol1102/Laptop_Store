@@ -75,7 +75,7 @@
         /*end*/
         #header_bar{
             padding: 10px 0;
-            width: 200px;
+            width: 220px;
             color: #FFFFFF;
             font-size: 20px;
             text-transform: uppercase;
@@ -164,6 +164,12 @@
             <ul id="header_bar">
                 <li style="list-style: none;"><a href="{{url('/')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Contact</a></li>
             </ul>
+            <ul id="header_bar">
+                <li style="list-style: none;"><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Tuyển dụng</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
+            </ul>
         </div>
     </div><!--/header-middle-->
 </header><!--/header-->
@@ -220,9 +226,9 @@
                 <li>Email: <i style="color: red">cnv@gmail.com</i></li>
             </ul>
             {{--p3--}}
-            <h3 style="font-size: 18px">Mua hàng doanh nghiệp:</h3>
+            <h3 style="font-size: 18px">Mua hàng liên hệ:</h3>
             <ul>
-                <li><strong>Gọi miễn phí: <i style="color: red">1800.2097</i> (Miền Nam) hoặc <i style="color: red">1800.2044</i> (Miền Bắc)</strong></li>
+                <li><strong>Gọi miễn phí: <i style="color: red">0167.899.999</i></strong></li>
                 <li>Email: <i style="color: red">cskh@MYLAPTOP.com.vn</i></li>
             </ul>
             <h3 style="font-size: 18px">Địa chỉ:</h3>

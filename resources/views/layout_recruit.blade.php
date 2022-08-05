@@ -14,8 +14,21 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+        *{
+            font-family: Calibri;
+        }
+        p{
+            font-size: 18px;
+        }
+        p.indent{
+            text-indent: 50px;
+        }
         .productinfo img{
             height: 200px;
+        }
+        ul li{
+            list-style-type: square;
+            font-size: 18px;
         }
         /*Search btn*/
         .search {
@@ -70,11 +83,11 @@
             font-weight: bold;
             display: inline-block;
         }
+
         #header_bar:hover{
             background-color: #FFFFFF;
             color: #d58512;
         }
-
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('public/frontend/1.jpg')}}">
@@ -111,17 +124,7 @@
                                         </button>
                                     </div>
                                 </div>
-
                             </form>
-                            <?php
-                            foreach ($Product as $value) {}
-                            $dem = count($Product);
-                            $noti = Session::get('noti');
-                            if($noti) {
-                                echo $noti."<b>".$dem."</b> kết quả";
-                                Session::put('noti', null);
-                            }
-                            ?>
                         </div>
                     </div>
                 </div>
@@ -153,35 +156,31 @@
     <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
-                <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
+                <li style="list-style: none;"><a href="{{url('/trang-chu')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Trang chủ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
+                <li style="list-style: none;"><a href="{{url('/lien-he')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Thông tin liên hệ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
+                <li style="list-style: none;"><a href="{{url('/')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Contact</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
+                <li style="list-style: none;"><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Tuyển dụng</a></li>
             </ul>
             <ul id="header_bar">
                 <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
             </ul>
         </div>
     </div><!--/header-middle-->
-
 </header><!--/header-->
-
+    {{--Đoạn Giới thiệu--}}
     <section>
-        <div class="container">
-            <div class="row">
-                <!-- Hiển thị tất cả sản phẩm -->
-                <div class="col-sm-9 padding-right">
-                @yield('content')
-                </div>
-            </div>
+        <h1 style="margin-top: 50px; text-align: center"> Thông tin tuyển dụng</h1>
+        <div style="margin: 0px 0 35px; text-align: center;">
+        <p><i>Hiện tại chúng tôi chưa có nhu cầu tuyển dụng!</i></p>
         </div>
     </section>
+
     <footer id="footer"><!--Footer-->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 

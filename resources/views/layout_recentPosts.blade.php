@@ -13,9 +13,26 @@
     <link href="{{asset('public/frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
+        *{
+            font-family: Calibri;
+        }
+        p{
+            font-size: 18px;
+        }
+        p.indent{
+            text-indent: 50px;
+        }
         .productinfo img{
             height: 200px;
+        }
+        ul li{
+            list-style-type: square;
+            font-size: 18px;
         }
         /*Search btn*/
         .search {
@@ -70,11 +87,11 @@
             font-weight: bold;
             display: inline-block;
         }
+
         #header_bar:hover{
             background-color: #FFFFFF;
             color: #d58512;
         }
-
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset('public/frontend/1.jpg')}}">
@@ -111,17 +128,7 @@
                                         </button>
                                     </div>
                                 </div>
-
                             </form>
-                            <?php
-                            foreach ($Product as $value) {}
-                            $dem = count($Product);
-                            $noti = Session::get('noti');
-                            if($noti) {
-                                echo $noti."<b>".$dem."</b> kết quả";
-                                Session::put('noti', null);
-                            }
-                            ?>
                         </div>
                     </div>
                 </div>
@@ -153,35 +160,100 @@
     <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
-                <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
+                <li style="list-style: none;"><a href="{{url('/trang-chu')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Trang chủ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
+                <li style="list-style: none;"><a href="{{url('/lien-he')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Thông tin liên hệ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
+                <li style="list-style: none;"><a href="{{url('/')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Contact</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
+                <li style="list-style: none;"><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Tuyển dụng</a></li>
             </ul>
             <ul id="header_bar">
                 <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
             </ul>
         </div>
     </div><!--/header-middle-->
-
 </header><!--/header-->
-
+    {{--Đoạn Giới thiệu--}}
     <section>
-        <div class="container">
-            <div class="row">
-                <!-- Hiển thị tất cả sản phẩm -->
-                <div class="col-sm-9 padding-right">
-                @yield('content')
+        {{--Page Bai viet gan day--}}
+        <div class="" style="" id="baivietganday">
+            <h1 style="margin:50px 0; text-align: center; font-weight: bold"> Bài viết gần đây</h1>
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/4/637925496795535496_288959045_5265756713500268_8390729033519885647_n.jpeg" alt="SUNHOUSE - TRẢ LỜI HAY TRAO QUÀ NGAY" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>SUNHOUSE - TRẢ LỜI HAY TRAO QUÀ NGAY</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                </div>
+                <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/27/637919374666752607_RC_Collection_1000x1000-4.png" alt="Tuần lễ vàng Lenovo Chất" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Tuần lễ vàng Lenovo Chất</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/26/637944478610752844_RC_Collection_1000x1000.png" alt="Điểm thấp hay cao, Đoán đúng là Trúng" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Điểm thấp hay cao, Đoán đúng là Trúng</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
                 </div>
             </div>
         </div>
+
+        <!-- Second Photo Grid-->
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div style="">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/12/637932152195851759_Ảnh chụp Màn hình 2022-07-12 lúc 09.33.30.png" alt="Quét mã 1 giây Trúng ngay Laptop" style="width:100%; display: block; overflow: hidden;height: 250px;" class="w3-hover-opacity">
+                </div>
+                <div class="w3-container w3-white">
+                <p><b>Quét mã 1 giây Trúng ngay Laptop</b></p>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/5/10/637562566448239236_VeMayBay-BaiViet.jpg" alt="SẮM LIỀN TAY - BAY MIỄN PHÍ" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>SẮM LIỀN TAY - BAY MIỄN PHÍ</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/3/1/637502183386071493_Capture.PNG" alt="Thần Tài Đến - Trúng 21 đồng vàng " style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Thần Tài Đến - Trúng 21 đồng vàng </b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Pagination -->
+        <div class="w3-center w3-padding-32">
+            <div class="w3-bar">
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+                <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+            </div>
+        </div>
+        {{--       End page bài viết gần đây --}}
     </section>
+
     <footer id="footer"><!--Footer-->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 

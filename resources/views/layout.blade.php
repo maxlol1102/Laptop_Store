@@ -69,7 +69,7 @@
 
         #header_bar{
             padding: 10px 0;
-            width: 200px;
+            width: 220px;
             color: #FFFFFF;
             font-size: 20px;
             text-transform: uppercase;
@@ -165,7 +165,13 @@
                     <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
                 </ul>
                 <ul id="header_bar">
-                    <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
+                    <li><a href="#contact"  class="active" style="color: black">Contact</a></li>
+                </ul>
+                <ul id="header_bar">
+                    <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
+                </ul>
+                <ul id="header_bar">
+                    <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
                 </ul>
             </div>
         </div><!--/header-middle-->
@@ -284,12 +290,12 @@
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         </head>
         <body>
 
+{{--Page contact--}}
         <div class="w3-container w3-content w3-padding-60" style="max-width:800px" id="contact">
-            <h1 class="w3-wide w3-center" style="font-weight: bold">CONTACT</h1>
+            <h1 class="w3-wide w3-center" style="font-weight: bold;">CONTACT</h1>
             <p class="w3-opacity w3-center"><i>Nếu bạn có thắc mắc gì? Hãy điền vào form bên dưới, để chúng tôi có thể giúp bạn một cách sớm nhất!</i></p>
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
@@ -313,7 +319,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Page Content -->
+        <!-- End Page Contact -->
 
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="footer-top">
