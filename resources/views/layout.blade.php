@@ -162,7 +162,7 @@
                     <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
                 </ul>
                 <ul id="header_bar">
-                    <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">About Us</a></li>
+                    <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
                 </ul>
                 <ul id="header_bar">
                     <li><a href="#contact"  class="active" style="color: black">Contact</a></li>

@@ -62,18 +62,14 @@
         }
         /*end*/
         #header_bar{
-            padding: 10px 0;
-            width: 220px;
+            padding-top: 15px;
+            width: 150px;
+            height: 50px;
             color: #FFFFFF;
-            font-size: 20px;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: bold;
-            display: inline-block;
+            font-size: 16px;
         }
         #header_bar:hover{
             background-color: #FFFFFF;
-            color: #d58512;
         }
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
@@ -90,9 +86,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo pull-left">
-                        <a href="{{URL::to('/trang-chu')}}">
-                            <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px">
-                        </a>
+                        <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px" ">
                         <div style="text-align: center">
                             <!-- Search form -->
                             <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
@@ -150,22 +144,10 @@
         </div>
     </div><!--/header_top-->
     <br><br>
-    <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
+    <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 50px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
                 <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
-            </ul>
-            <ul id="header_bar">
-                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
-            </ul>
-            <ul id="header_bar">
-                <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
-            </ul>
-            <ul id="header_bar">
-                <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
-            </ul>
-            <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
             </ul>
         </div>
     </div><!--/header-middle-->
