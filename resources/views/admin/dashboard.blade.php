@@ -12,7 +12,9 @@
                          <i class="fa fa-comments" style="font-size: 85px;padding: 0px;color: white;}"></i>
                      </div>
                      <div class="col-xs-9 text-right" style="color: white;">
-                         <div class="huge" style="font-size: 70px; padding-top: 5px;">50</div>
+                         <div class="huge" style="font-size: 70px; padding-top: 5px;">
+                            4
+                         </div>
                          <div style="font-size: 11px;">Đơn hàng đang chờ xử lí</div>
                      </div>
                  </div>
