@@ -15,6 +15,9 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+        *{
+            font-family: "Lato", sans-serif;
+        }
         .productinfo img{
             height: 200px;
         }
@@ -62,18 +65,41 @@
         }
         /*end*/
         #header_bar{
-            padding: 10px 0;
-            width: 220px;
+            height: 50px;
+            padding: 11px 0;
+            width: 200px;
             color: #FFFFFF;
             font-size: 20px;
             text-transform: uppercase;
             text-align: center;
-            font-weight: bold;
+
             display: inline-block;
         }
         #header_bar:hover{
             background-color: #FFFFFF;
             color: #d58512;
+        }
+
+        #dropdownMenuLink{
+            background-color: #FE980F;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 15px;
+            padding: 7px;
+        }
+        #dropdownMenuLink:hover{
+            background-color: #000000;
+            color:#FE980FFF ;
+        }
+
+        .dropdown-menu{
+            padding: 0px;
+           font-size: 15px;
+        }
+        .dropdown-menu li {
+            font-size: 15px;
+            color: #000000;
         }
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
@@ -90,9 +116,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo pull-left">
-                        <a href="{{URL::to('/trang-chu')}}">
-                            <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px">
-                        </a>
+                        <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px" ">
                         <div style="text-align: center">
                             <!-- Search form -->
                             <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
@@ -138,8 +162,17 @@
                             <?php
                             } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
                             ?>
-                            <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
-                            <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php $name = Session::get('customer_name'); echo $name; ?>
+                                        <i class="fa fa-arrow-down"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                        <li><a class="dropdown-item" href="{{URL::to('/logout-customer')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                                    </div>
+                                </div>
                             <?php
                             }
                             ?>
@@ -150,13 +183,13 @@
         </div>
     </div><!--/header_top-->
     <br><br>
-    <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
+    <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 50px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
                 <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
+                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">About Us</a></li>
             </ul>
             <ul id="header_bar">
                 <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
@@ -165,7 +198,7 @@
                 <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
             </ul>
             <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
+                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}" class="active" style="color: black">Bài viết gần đây</a></li>
             </ul>
         </div>
     </div><!--/header-middle-->

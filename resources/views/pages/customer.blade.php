@@ -5,7 +5,7 @@
         <div class="container">
             <div class="breadcrumbs" style="text-align: center">
                 <ol class="breadcrumb">
-                    <li class="active"><h3>QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
+                    <li class="active"><h3 style="font-size: 30px">QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">

@@ -1,0 +1,17 @@
+[33m77bf132[m[33m ([m[1;36mHEAD -> [m[1;32mvu[m[33m, [m[1;31morigin/vu[m[33m)[m HEAD@{0}: commit (merge): Merge remote-tracking branch 'upstream/main' into vu
+[33m45edd2d[m HEAD@{1}: reset: moving to HEAD
+[33m45edd2d[m HEAD@{2}: commit: sửa layout phần khách hàng
+[33m04a2d85[m HEAD@{3}: merge upstream/main: Merge made by the 'ort' strategy.
+[33m37478b5[m HEAD@{4}: commit: Update layout.blade.php
+[33m1a3be26[m HEAD@{5}: commit: Sửa thêm tý nx
+[33mdda9256[m HEAD@{6}: merge upstream/main: Merge made by the 'ort' strategy.
+[33mf3ffcca[m HEAD@{7}: commit: Sửa layout giao diện
+[33mca9515d[m HEAD@{8}: checkout: moving from Trang to vu
+[33m075c86a[m[33m ([m[1;31morigin/Trang[m[33m, [m[1;32mTrang[m[33m)[m HEAD@{9}: checkout: moving from vu to Trang
+[33mca9515d[m HEAD@{10}: merge upstream/main: Merge made by the 'ort' strategy.
+[33m26d9f37[m HEAD@{11}: commit: sửa layout và làm phần liên hệ customer
+[33m5ad4e59[m HEAD@{12}: commit (merge): sua conflict
+[33ma0a5233[m HEAD@{13}: commit: gio hang update thong tin cua khach hang
+[33m70e9703[m HEAD@{14}: checkout: moving from main to vu
+[33m70e9703[m HEAD@{15}: pull --no-stat -v --progress origin main: Fast-forward
+[33me794721[m HEAD@{16}: clone: from https://github.com/daothithutrang/shoplaptop.git
