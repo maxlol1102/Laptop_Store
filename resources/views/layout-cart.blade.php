@@ -65,7 +65,7 @@
         /*end*/
         #header_bar{
             padding: 10px 0;
-            width: 200px;
+            width: 220px;
             color: #FFFFFF;
             font-size: 20px;
             text-transform: uppercase;
@@ -163,6 +163,12 @@
             </ul>
             <ul id="header_bar">
                 <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>
             </ul>
         </div>
     </div><!--/header-middle-->

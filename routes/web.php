@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
     Route::get('/trang-chu','HomeController@index');
     Route::post('/trang-chu','HomeController@index');
     Route::get('/lien-he','HomeController@index1');
+    Route::get('/tuyen-dung','HomeController@recruit');
+    Route::get('/bai-viet-gan-day','HomeController@recentPosts');
     Route::get('/detail_product/{product_code}','ProductController@detail_product');
     Route::post('/save-cart','CartController@save_cart');
     Route::get('/show-cart','CartController@show_cart');

@@ -44,4 +44,10 @@ class HomeController extends Controller
     public function index1(){
         return view('pages.contacts');
     }
+    public function recruit(){
+        return view('layout_recruit');
+    }
+    public function recentPosts(){
+        return view('layout_recentPosts');
+    }
 }
