@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         *{
-            font-family: Calibri;
+            font-family: "Lato", sans-serif;
         }
         p{
             font-size: 18px;
@@ -84,7 +84,6 @@
             font-size: 20px;
             text-transform: uppercase;
             text-align: center;
-            font-weight: bold;
             display: inline-block;
         }
 
@@ -145,8 +144,8 @@
                             <?php
                             } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
                             ?>
-                            <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
-                            <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <li><a style="font-size: 15px" href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
+                            <li><a style="font-size: 15px" href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                             <?php
                             }
                             ?>
@@ -160,16 +159,16 @@
     <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/trang-chu')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Trang chủ</a></li>
+                <li style="list-style: none;"><a href="{{url('/trang-chu')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Trang chủ</a></li>
             </ul>
             <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/lien-he')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Thông tin liên hệ</a></li>
+                <li style="list-style: none;"><a href="{{url('/lien-he')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">About Us</a></li>
             </ul>
             <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Contact</a></li>
+                <li style="list-style: none;"><a href="{{url('/')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Contact</a></li>
             </ul>
             <ul id="header_bar">
-                <li style="list-style: none;"><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black;font-size: 21px;padding: 10px;">Tuyển dụng</a></li>
+                <li style="list-style: none;"><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Tuyển dụng</a></li>
             </ul>
             <ul id="header_bar">
                 <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Bài viết gần đây</a></li>

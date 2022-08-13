@@ -14,6 +14,9 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+        *{
+            font-family: "Lato", sans-serif;
+        }
         .productinfo img{
             height: 200px;
         }
@@ -67,7 +70,6 @@
             font-size: 20px;
             text-transform: uppercase;
             text-align: center;
-            font-weight: bold;
             display: inline-block;
         }
         #header_bar:hover{
@@ -138,8 +140,8 @@
                             <?php
                             } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
                             ?>
-                            <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
-                            <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <li><a style="font-size: 15px" href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
+                            <li><a style="font-size: 15px" href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                             <?php
                             }
                             ?>
@@ -150,13 +152,13 @@
         </div>
     </div><!--/header_top-->
     <br><br>
-    <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
+    <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 49px">
         <div class="container" style="height: 50px;">
             <ul id="header_bar">
                 <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
             </ul>
             <ul id="header_bar">
-                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">Thông tin liên hệ</a></li>
+                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">About us</a></li>
             </ul>
             <ul id="header_bar">
                 <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>

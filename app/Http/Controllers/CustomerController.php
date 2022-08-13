@@ -233,7 +233,7 @@ class CustomerController extends Controller
         public function customer() {
             $customer_id = Session::get('customer_id');
             $Product = DB::table('orders')
-                ->orderBy('order_day')
+                ->orderBy('order_day','desc')
                 ->where('customer_id', $customer_id)->select('*')->get();
             return view('pages.customer', compact('Product'));
         }
