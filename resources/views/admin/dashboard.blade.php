@@ -12,8 +12,10 @@
                          <i class="fa fa-comments" style="font-size: 85px;padding: 0px;color: white;}"></i>
                      </div>
                      <div class="col-xs-9 text-right" style="color: white;">
-                         <div class="huge" style="font-size: 70px; padding-top: 5px;">50</div>
-                         <div style="font-size: 11px;">Đơn hàng đang chờ xử lí</div>
+                         <div class="huge" style="font-size: 70px; padding-top: 5px;">
+                        {{ $total_xuly }}
+                        </div>
+                         <div style="font-size: 11px;">Đang chờ xử lí</div>
                      </div>
                  </div>
              </div>
@@ -34,7 +36,9 @@
                          <i class="fa fa-users " style="font-size: 80px;padding: 15px 0;color: white;"></i>
                      </div>
                      <div class="col-xs-9 text-right" style="color: white;">
-                         <div class="huge" style="font-size: 70px; padding-top: 5px;">10</div>
+                        <div class="huge" style="font-size: 70px; padding-top: 5px;">
+                        {{$total_customer}}
+                        </div>
                          <div style="font-size: 11px;">Khách hàng</div>
                      </div>
                  </div>
@@ -57,7 +61,7 @@
                      </div>
                      <div class="col-xs-9 text-right" style="color: white;">
                          <div class="huge" style="font-size: 70px; padding-top: 5px;">
-                             {{49}}
+                             {{$total_order}}
                          </div>
                          <div style="font-size: 11px;">Đơn hàng đã giao</div>
                      </div>
@@ -80,7 +84,9 @@
                          <i class="fa fa-barcode" style="font-size: 85px;padding: 17px 0; color: white;"></i>
                      </div>
                      <div class="col-xs-9 text-right" style="color: white;">
-                         <div class="huge" style="font-size: 70px; padding-top: 5px;">243</div>
+                         <div class="huge" style="font-size: 70px; padding-top: 5px;">
+                        {{ $total_product}}
+                        </div>
                          <div style="font-size: 11px;">Sản phẩm</div>
                      </div>
                  </div>

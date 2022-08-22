@@ -17,17 +17,8 @@
     <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
-        <p style="text-align: center; background: #ddede0"><b>Tổng số đơn hàng đang chờ xử lí:
-                @foreach ($db_order as $item)
-                    <?php
-                    $count = count($db_order);
-                    ?>
-                @endforeach
-                <?php
-                if($count) {
-                    echo "<font color='red'>".$count."</font>";
-                }
-                ?></b>
+        <p style="text-align: center; background: #ddede0; color:red; font-weight:bold"><b style="color:black">Tổng số đơn hàng đang chờ xử lí:</b>  
+            {{$total_xuly}}
         </p>
         <tr>
             <th style="text-align: center">STT</th>
