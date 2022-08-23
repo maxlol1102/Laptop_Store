@@ -1,6 +1,18 @@
 @extends('admin_layout')  {{-- trang nay de lay giao dien --}}
 @section('admin_content')  {{-- con day la phan code cua tung trang  --}}
+<style>
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-right:20px ;
+  margin-left: 20px;
+}
 
+
+</style>
 {{--Doanh thu thang--}}
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -26,11 +38,11 @@
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center"><b>Doanh thu tháng này</b> ({{$currentYear}}-{{$currentMonth}})</td>
-                <td style="text-align: center">{{number_format($sum)}} VND</td>
-                <td style="text-align: center"><b>Tổng số đơn hàng đã bán tháng này</b> ({{$currentYear}}-{{$currentMonth}})</td>
-                <td style="text-align: center">{{number_format($count)}}</td>
-                <td style="text-align: center"><a href="{{URL::to('/chi-tiet-doanh-thu')}}/{{$currentMonth}}">Chi tiết</a></td>
+                <td style="text-align: center"><b>Doanh thu tháng này</b> </td>
+                <td style="text-align: center">{{ number_format($tong_tien,0, '','.') }} VND</td>
+                <td style="text-align: center"><b>Tổng số đơn hàng đã bán tháng này</b> </td>
+                <td style="text-align: center">{{$tong_dh}}</td>
+                <td style="text-align: center"><a href=>Chi tiết</a></td>
             </tr>
         </tbody>
     </table>
@@ -41,51 +53,80 @@
         Doanh thu năm
     </div>
     <table class="table table-striped table-bordered">
-        <thead style="">
+        <thead>
         </thead>
         <tbody>
             <tr>
                 <th style="text-align: center">Doanh thu năm</th>
                 <th style="text-align: center">Tổng doanh thu</th>
             </tr>
-            @foreach ($historyY as $item)
+
             <tr>
-                <td style="text-align: center">{{$item->nam}}</td>
-                <td style="text-align: center">{{number_format($item->tong_doanh_thu)}} VND</td>
+                <td style="text-align: center">{{ number_format($tong_tien_nam,0, '','.') }} VND</td>
+                <td style="text-align: center">{{ number_format($tong_dt,0, '','.') }} VND</td>
             </tr>
-            @endforeach
         </tbody>
     </table>
+    </div>
+           
 
-{{--        Lich su--}}
-{{--    <div class="panel-heading">--}}
-{{--        Lịch sử--}}
-{{--    </div>--}}
-{{--    <table class="table table-striped table-bordered">--}}
-{{--        <thead style="">--}}
-{{--        </thead>--}}
-{{--        <tbody>--}}
-{{--            @foreach ($history as $item)--}}
-{{--            <tr>--}}
-{{--                <td style="text-align: center"><b>Doanh thu tháng</b> ({{$item->thang}})</td>--}}
-{{--                <td style="text-align: center">{{number_format($item->tong_doanh_thu)}} VND</td>--}}
-{{--                <td style="text-align: center"><b>Tổng số đơn hàng đã bán tháng </b> ({{$item->thang}})</td>--}}
-{{--                <td style="text-align: center">{{$item->tong_don_hang}}</td>--}}
-{{--                <td style="text-align: center"><a href="{{URL::to('/lich-su-chi-tiet-doanh-thu')}}/{{$item->thang}}">Chi tiết</a></td>--}}
-{{--            </tr>--}}
-{{--            @endforeach--}}
-{{--        </tbody>--}}
-{{--    </table>--}}
+    <div class="panel-heading">
+                Biểu đồ doanh thu
+                <i class="fa fa-bar-chart"></i>
     </div>
-    <footer class="panel-footer">
+ 
     <div class="row">
-        <div class="col-sm-5 text-center">
-        <small class="text-muted inline m-t-sm m-b-sm"></small>
+        <div class="col-xl-6" style="flex: 0 0 auto;width: 50%;">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Số đơn trong các tháng
+                    </div>
+                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                </div>
         </div>
-        <div class="col-sm-7 text-right text-center-xs">
-        </div>
+ 
+            <div class="col-xl-6" style="flex: 0 0 auto;width: 50%;">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Lợi nhuận trong các năm
+                    </div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                </div>
+            </div>
     </div>
-    </footer>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+   
+    // Biến in ra dữ liệu
+    var _ydata=JSON.parse('{!! json_encode($months) !!}');
+    var _xdata=JSON.parse('{!! json_encode($monthCount) !!}');
+
+
+</script>
+<!-- Truy cập vào trang để bảng -->
+<script src="{{asset('public')}}/assets/demo/chart-area-demo.js"></script>
+<script src="{{asset('public')}}/assets/demo/chart-bar-demo.js"></script> 
+
+
+
+
+
+
+
+
+
+
+
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                <small class="text-muted inline m-t-sm m-b-sm"></small>
+                </div>
+                <div class="col-sm-7 text-right text-center-xs">
+                </div>
+            </div>
+        </footer>
 </div>
 </div>
 @endsection

@@ -157,4 +157,6 @@ session_start();
             Session::put('message','Xóa danh phẩm thành công!');
             return Redirect::to('all-product');  // tra ve lai all category
         }
+
+      
     }

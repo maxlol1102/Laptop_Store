@@ -82,7 +82,10 @@ class CustomerController extends Controller
                 ->where('order_status', 0)
                     ->orderBy('order_day')
                     ->select('*')->paginate(10);
-                return view('admin.order_manager', compact('db_order'));
+                
+                $total_xuly = DB::table('orders')->where('order_status', 0)->count();
+
+                return view('admin.order_manager', compact('db_order','total_xuly'));
             }
         // chi tiet don hang
             public function orderDetailManager(Request $request) {
@@ -391,4 +394,7 @@ class CustomerController extends Controller
             return Redirect::to('/customer');
         }
     //end/
+        
+  
+
 }

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Symfony\Component\Console\Input\Input;
 
 class StatisticalController extends Controller
 {
@@ -62,97 +65,60 @@ class StatisticalController extends Controller
         return view('admin.statistical.chi-tiet-don-hang', compact('db_order_detail','db_order', 'db_join'));
     }
 
-    public function getMonthlySum(Carbon $date)
-    {
-        $year = $date->year;
-        $month = $date->month;
+ 
 
-        if ($month < 10) {
-            $month = '0' . $month;
+    public function doanhThu() {
+        $tong_dh = DB::table('Orders')
+        ->select('order_id')
+        ->whereMonth('created_at',date('m'))
+        ->where('order_status', 2)
+        ->count();
+        
+        $tong_tien = DB::table('Orders')
+        ->whereMonth('created_at',date('m'))
+        ->where('order_status', 2)
+        ->sum('order_total_price');
+
+        $tong_tien_nam = DB::table('Orders')
+        ->whereYear('created_at',date('Y'))
+        ->where('order_status', 2)
+        ->sum('order_total_price');
+        // dd($tong_tien_nam);
+
+        $tong_dt = DB::table('Orders')
+        ->where('order_status', 2)
+        ->sum('order_total_price');
+
+        $data_Y=Orders::select('order_id','created_at')
+        ->where('order_status', 2)
+        ->get()
+        ->groupBy(function($data){
+            return Carbon::parse($data->created_at)->format('Y');
+        });
+    
+        // Biểu đồ
+        
+        //Tháng
+        $data=Orders::select('order_id','created_at')
+        ->where('order_status', 2)
+        ->get()
+        ->groupBy(function($data){
+            return Carbon::parse($data->created_at)->format('M');
+        });
+ 
+        $months=[];
+        $monthCount=[];
+ 
+        foreach($data as $month => $values){
+            $months[]=$month;
+            $monthCount[]=count($values);
         }
 
-        $search = $year . '-' . $month;
 
-        $orders = parent::where('date', 'like', $search .'%')->get();
+    
 
-        $sum = 0;
-        foreach ($orders as $order) {
-            $sum += $orders->order;
-        }
 
-        return $sum;
-    }
 
-    public function doanhThu(Request $request) {
-        // lay thang hien tai
-        $currentMonth = Carbon::now()->month;
-        // lay nam hien tai
-        $currentYear = Carbon::now()->year;
-        // lay ngay cuoi cung cua thang hien tai
-        $lastCurrentMonth = date("Y-m-t", strtotime("0 month"));
-        // lay nam thang hien tai
-        $currentYM = $currentYear."-".$currentMonth;
-        // tinh doanh thu va so luong don hang da ban theo thang
-        $sum = DB::table('orders')->where('order_status', '=', 2)->whereBetween('order_day', [$currentYM.'-01 00:00:00', $lastCurrentMonth.' 23:59:59'])->sum('order_total_price');
-        $count = DB::table('orders')->where('order_status', '=', 2)->whereBetween('order_day', [$currentYM.'-01 00:00:00', $lastCurrentMonth.' 23:59:59'])->count('order_status');
-        // tinh doanh thu theo nam
-        $sumY = DB::table('orders')->where('order_status', '=', 2)->whereBetween('order_day', [$currentYear.'-01-01 00:00:00', $currentYear.'-12-31 23:59:59'])->sum('order_total_price');
-        // luu doanh thu vao csdl
-            $data = array();
-            $dataY = array();
-            // check doanh thu thang trong csdl
-                $select = DB::table('revenues')->where('thang', $currentYM)->first();
-                if($select) { // neu da co doanh thu thang nay thi update du lieu
-                    // thuc thi lenh update doanh thu vao csdl
-                        $data['tong_doanh_thu'] = $sum;
-                        $data['tong_don_hang'] = $count;
-                        DB::table('revenues')->where('thang', $currentYM)->update($data);
-                } else { // neu chua co doanh thu thang nay thi them vao csdl
-                    // thuc thi lenh luu doanh thu vao csdl
-                        $data['thang'] = $currentYM;
-                        $data['tong_doanh_thu'] = $sum;
-                        $data['tong_don_hang'] = $count;
-                        DB::table('revenues')->insert($data);
-                }
-            // check doanh thu nam trong csdl
-                $selectY = DB::table('revenue_years')->where('nam', $currentYear)->first();
-                if($selectY) { // neu da co doanh thu nam nay thi update du lieu
-                    // thuc thi lenh update doanh thu vao csdl
-                        $dataY['tong_doanh_thu'] = $sumY;
-                        DB::table('revenue_years')->where('nam', $currentYear)->update($dataY);
-                } else { // neu chua co doanh thu nam nay thi them vao csdl
-                    // thuc thi lenh luu doanh thu vao csdl
-                        $dataY['nam'] = $currentYear;
-                        $dataY['tong_doanh_thu'] = $sumY;
-                        DB::table('revenue_years')->insert($dataY);
-                }
-        // lich su doanh thu
-        $history = DB::table('revenues')->select('*')->orderBy('thang', 'desc')->get();
-        $historyY = DB::table('revenue_years')->select('*')->orderBy('nam', 'desc')->get();
-        return view('admin.statistical.doanh-thu', compact('sum', 'count', 'currentMonth', 'currentYear', 'history', 'historyY'));
-    }
-    // chi tiet doanh thu
-    public function chiTietDoanhThu(Request $request) {
-        // lay thang hien tai
-        $currentMonth = Carbon::now()->month;
-        // lay nam hien tai
-        $currentYear = Carbon::now()->year;
-        // lay ngay cuoi cung cua thang hien tai
-        $lastCurrentMonth = date("Y-m-t", strtotime("0 month"));
-        // lay nam thang hien tai
-        $currentYM = $currentYear."-".$currentMonth;
-        // xem chi tiet doanh thu
-        $order = DB::table('orders')->where('order_status', '=', 2)->whereBetween('order_day', [$currentYM.'-01 00:00:00', $lastCurrentMonth.' 23:59:59'])->get();
-        return view('admin.statistical.chi-tiet-doanh-thu-thang', compact('order', 'currentMonth', 'currentYear'));
-    }
-    // lich su chi tiet doanh thu
-    public function lichSuChiTietDoanhThu($thang) {
-        $title = DB::table('revenues')->where('thang', $thang)->get();
-        // lay ngay cuoi cung cua thang
-        $lastCurrentMonth = date($thang."-t", strtotime("0 month"));
-        if($thang) {
-            $order = DB::table('orders')->where('order_status', '=', 2)->whereBetween('order_day', [$thang.'-01 00:00:00', $lastCurrentMonth.' 23:59:59'])->get();
-        }
-        return view('admin.statistical.lich-su-chi-tiet-doanh-thu', compact('order', 'title'));
+        return view('admin.statistical.doanh-thu',compact('data','months','monthCount','tong_tien_nam','tong_tien','tong_dh','tong_dt'));
     }
 }

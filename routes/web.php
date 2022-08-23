@@ -75,10 +75,11 @@ use Illuminate\Support\Facades\Route;
             Route::get('/hang-con', 'StatisticalController@hangCon');
             Route::get('/hang-het', 'StatisticalController@hangHet');
             Route::get('/hang-da-ban', 'StatisticalController@hangDaBan');
-            Route::get('/doanh-thu', 'StatisticalController@doanhThu');
             Route::get('/chi-tiet-don-hang/{order_id}', 'StatisticalController@chiTietDonHang');
-            Route::get('/chi-tiet-doanh-thu/{currentMonth}', 'StatisticalController@chiTietDoanhThu');
-            Route::get('/lich-su-chi-tiet-doanh-thu/{thang}', 'StatisticalController@lichSuChiTietDoanhThu');
+            
+            Route::get('/doanh-thu', 'StatisticalController@doanhThu');
+
+            
     // end admin
 
     //customer
@@ -108,3 +109,4 @@ use Illuminate\Support\Facades\Route;
 
 //end backend
 
+  

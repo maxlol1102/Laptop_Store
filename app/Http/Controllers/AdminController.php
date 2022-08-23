@@ -26,7 +26,11 @@ class AdminController extends Controller
     }
     public function show_dashboard(){
         $this->authLogin();
-        return view('admin.dashboard');    //vao admin xong nhan trang dashboard
+        $total_xuly = DB::table('orders')->where('order_status', 0)->count();
+        $total_product = DB ::table('tbl_product')->count();
+        $total_order = DB::table('orders')->where('order_status', 2)->count();
+        $total_customer = DB ::table('tbl_customer')->count();
+        return view('admin.dashboard', compact('total_xuly', 'total_product','total_customer','total_order'));    //vao admin xong nhan trang dashboard
     }
     public function dashboard(Request $request){
         $admin_email = $request->admin_email;
