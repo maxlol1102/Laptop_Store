@@ -48,23 +48,6 @@
                 <td style="text-align: center">{{$item->customer_phone}}</td>
                 <td style="text-align: center">{{$item->order_id}}</td>
                 <td style="text-align: center">{{$item->order_day}}</td>
-{{--                <td style="text-align: center">--}}
-{{--                    <?php--}}
-{{--                        if($item->order_status == 0) {--}}
-{{--                    ?>--}}
-{{--                        Đang chờ xử lý--}}
-{{--                    <?php--}}
-{{--                        } else if($item->order_status == 1) {--}}
-{{--                    ?>--}}
-{{--                        Đang vận chuyển đơn hàng--}}
-{{--                    <?php--}}
-{{--                        } else if($item->order_status == 2) {--}}
-{{--                    ?>--}}
-{{--                        Đã giao hàng--}}
-{{--                    <?php--}}
-{{--                        }--}}
-{{--                    ?>--}}
-{{--                </td>--}}
                 <td style="text-align: center">
                     <a href="{{URL::to('/admin-order-manager')}}/{{$item->order_id}}">Chi tiết</a>
                 </td>
