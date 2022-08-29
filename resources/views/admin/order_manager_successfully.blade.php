@@ -32,6 +32,7 @@
             <th style="text-align: center">STT</th>
             <th style="text-align: center">Tên khách hàng</th>
             <th style="text-align: center">Số điện thoại</th>
+            <th style="text-align: center">Địa chỉ</th>
             <th style="text-align: center">Mã đơn hàng</th>
             <th style="text-align: center">Ngày đặt hàng</th>
             <th style="text-align: center">Chức năng</th>
@@ -46,6 +47,7 @@
                 </td>
                 <td style="text-align: center">{{$item->customer_name}}</td>
                 <td style="text-align: center">{{$item->customer_phone}}</td>
+                <td style="text-align: center">{{$item->customer_address}}</td>
                 <td style="text-align: center">{{$item->order_id}}</td>
                 <td style="text-align: center">{{$item->order_day}}</td>
                 <td style="text-align: center">

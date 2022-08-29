@@ -1,5 +1,9 @@
 @extends('admin_layout')  {{-- trang nay de lay giao dien --}}
 @section('admin_content')  {{-- con day la phan code cua tung trang  --}}
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
 <div class="panel panel-default">
     <div style="background: #626262; text-align: center; widows: 100%;">
         <form action="{{URL::to('/all-product')}}" method="get" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
@@ -65,7 +69,34 @@
                         }
                     ?>
                 </th>
-                <th style="text-align: center">Số lượng</th>
+                <th style="text-align: center;width: 150px;">
+                    <?php
+                    $index = Session::get('index');
+                    if($index) {
+                    ?>
+                    Giá tiền
+                    <?php Session::put('index', null);
+                    } else {
+                    ?>
+                    <form id="sap_xep_gia" method="GET">
+                        <select name="asc_desc" class="asc_desc">
+                            <option selected="selected">Số lượng</option>
+                            <option value="asc">Tăng dần</option>
+                            <option value="desc">Giảm dần</option>
+                        </select>
+                    </form>
+                    <script>
+                        $(function() {
+                            $('.asc_desc').change(function() {
+                                $('#sap_xep_gia').submit();
+                            })
+                        })
+                    </script>
+                    <?php
+                    }
+                    ?>
+                </th>
+{{--                <th style="text-align: center">Số lượng</th>--}}
                 <th style="text-align: center">Mã danh mục</th>
                 <th style="text-align: center">Chức năng</th>
             </tr>
@@ -75,30 +106,24 @@
             <tr>
                 <td style="text-align: center"><?php $i++; echo $i; ?></td>
                 <td style="text-align: center">{{ $prod_pro->code}}</td>
-                <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $prod_pro->product_img }}">{{ $prod_pro->product_img }}</td>
+                <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $prod_pro->product_img }}"></td>
                 <td style="text-align: center">{{ $prod_pro->product_name }}</td>   {{-- lay ten sp ra --}}
                 <td style="text-align: center">{{ $prod_pro->product_desc }}</td>  {{-- mota sp --}}
                 <td style="text-align: center">{{ number_format($prod_pro->product_price) }} VND</td>  {{-- gia sp --}}
                 <td style="text-align: center">
-{{--                    <span class="text-ellipsis">--}}
                 <?php
-                if($prod_pro->product_quanity==0){  //trang thai số lượng hàng để hiển thị
+                if($prod_pro->product_quanity<10){  //trang thai số lượng hàng <10 sẽ hiển thị cảnh báo cho admin
                 ?>
                     {{ $prod_pro->product_quanity}}
-{{--                    <a href="{{URL::to('/unactive-product/'.$prod_pro->product_quanity)}}">--}}
-{{--                    <span class="fa-thumb-styling fa fa-thumbs-down" style="color: red; font-size:20px"></span></a>  {{--  an san pham--}}
+                    <span class="fas fa-exclamation" style="color: red; font-size:20px"></span>
                 <?php
                     }else{
                     ?>
                     {{ $prod_pro->product_quanity}}
-{{--                    <a href="{{URL::to('/active-product/'.$prod_pro->product_quanity)}}">--}}
-{{--                        <span class="fa-thumb-styling fa fa-thumbs-up" style="color: blue; font-size:20px"></span></a>  {{-- hien san pham--}}
                     <?php
                     }
                 ?>
-{{--                    </span>--}}
                 </td>
-{{--                <td style="text-align: center">{{ $prod_pro->product_quanity}}</td>--}}  {{--lấy ra số lượng SP --}}
                 <td style="text-align: center">{{ $prod_pro->category_id}}</td>
                 <td style="text-align: center">
                 <a href="{{URL::to('/edit-product/'.$prod_pro->code)}}" class="active" ui-toggle-class="" style="font-size: 17px">

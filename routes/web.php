@@ -74,12 +74,11 @@ use Illuminate\Support\Facades\Route;
         // thong ke
             Route::get('/hang-con', 'StatisticalController@hangCon');
             Route::get('/hang-het', 'StatisticalController@hangHet');
-            Route::get('/hang-da-ban', 'StatisticalController@hangDaBan');
+            Route::get('/thong-ke-san-pham', 'StatisticalController@thongKeSanPham');
             Route::get('/chi-tiet-don-hang/{order_id}', 'StatisticalController@chiTietDonHang');
-            
             Route::get('/doanh-thu', 'StatisticalController@doanhThu');
 
-            
+
     // end admin
 
     //customer
@@ -109,4 +108,3 @@ use Illuminate\Support\Facades\Route;
 
 //end backend
 
-  

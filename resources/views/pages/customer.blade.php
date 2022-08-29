@@ -65,7 +65,7 @@
                             <td class="cart_delete" style="text-align: center">
                                 <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
                                    class="cart_quantity_delete" href="{{URL::to('/delete-order')}}/{{$item->order_id}}"><i
-                                        class="fa fa-times"></i></a>
+                                        class="fa fa-times" style="color: red"></i></a>
                             </td>
                             <?php
                             }

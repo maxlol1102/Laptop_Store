@@ -40,22 +40,16 @@ class StatisticalController extends Controller
         return view('admin.statistical.hang-het', compact('product'));
     }
 
-    public function hangDaBan(Request $request)
+    public function thongKeSanPham(Request $request)
     {
-        // tim kiem đơn hàng
-        if ($request->isMethod('get')) {
-            $search = $request->search;
-            if ($search) {
-                Session::put('value', $search);
-                $orders = DB::table('orders')
-                    ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                    ->orderBy('order_day')
-                    ->where('orders.order_status', 2)->where('tbl_customer.customer_phone', 'like', '%' . $search . '%')->orWhere('orders.order_id', 'like', '%' . $search . '%')->get();
-                return view('admin.statistical.don-hang-da-ban', compact('orders'));
-            }
-        }
-        $orders = DB::table('orders')->where('order_status', '=', 2)->get();
-        return view('admin.statistical.don-hang-da-ban', compact('orders'));
+//        $db_statistical_category = DB::table('tbl_category_product')
+//            ->where('category_id',$request->category_id)
+//            ->select('*')->get();
+
+        $db_statistical_product = DB::table('tbl_product')
+            ->select('*')->get();
+        return view('admin.statistical.thong-ke-san-pham',  compact('db_statistical_product'));
+
     }
 
     public function chiTietDonHang(Request $request)

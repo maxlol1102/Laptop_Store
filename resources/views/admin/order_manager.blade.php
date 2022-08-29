@@ -17,13 +17,14 @@
     <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
-        <p style="text-align: center; background: #ddede0; color:red; font-weight:bold"><b style="color:black">Tổng số đơn hàng đang chờ xử lí:</b>  
+        <p style="text-align: center; background: #ddede0; color:red; font-weight:bold"><b style="color:black">Tổng số đơn hàng đang chờ xử lí:</b>
             {{$total_xuly}}
         </p>
         <tr>
             <th style="text-align: center">STT</th>
             <th style="text-align: center">Tên khách hàng</th>
             <th style="text-align: center">Số điện thoại</th>
+            <th style="text-align: center">Địa chỉ</th>
             <th style="text-align: center">Mã đơn hàng</th>
             <th style="text-align: center">Ngày đặt hàng</th>
             <th style="text-align: center">Chức năng</th>
@@ -38,6 +39,7 @@
                 </td>
                 <td style="text-align: center">{{$item->customer_name}}</td>
                 <td style="text-align: center">{{$item->customer_phone}}</td>
+                <td style="text-align: center">{{$item->customer_address}}</td>
                 <td style="text-align: center">{{$item->order_id}}</td>
                 <td style="text-align: center">{{$item->order_day}}</td>
                 <td style="text-align: center">

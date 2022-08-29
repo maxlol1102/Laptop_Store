@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         {{--<li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
                         <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>--}}
-                        <li><a href="{{URL::to('hang-da-ban')}}">Đơn hàng đã bán</a></li>
+                        <li><a href="{{URL::to('thong-ke-san-pham')}}">Thống kê sản phẩm</a></li>
                         <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
                     </ul>
                 </li>

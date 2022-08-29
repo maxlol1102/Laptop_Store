@@ -64,7 +64,7 @@
                                 </font>
                             </td>
                             <td style="text-align: center; vertical-align: bottom">
-                                <a class="cart_quantity_delete" href="{{URL::to('/delete-to-cart')}}/{{$v_content->rowId}}"><i class="fa fa-times"></i></a>
+                                <a class="cart_quantity_delete" href="{{URL::to('/delete-to-cart')}}/{{$v_content->rowId}}"><i class="fa fa-times" style="color: red"></i></a>
                             </td>
                         </tr>
                         @endforeach
