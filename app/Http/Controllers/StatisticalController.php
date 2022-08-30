@@ -39,19 +39,32 @@ class StatisticalController extends Controller
         $product = DB::table('tbl_product')->where('product_status', 0)->get();
         return view('admin.statistical.hang-het', compact('product'));
     }
-
-    public function thongKeSanPham(Request $request)
+//Thống kê sp bán nhiều nhất
+    public function thongKeSanPhamBanNhieuNhat(Request $request)
     {
-//        $db_statistical_category = DB::table('tbl_category_product')
-//            ->where('category_id',$request->category_id)
-//            ->select('*')->get();
-
+        $db_statistical_order_detail =DB::table('order_details')
+            ->select('order_details.order_qty')->get();
         $db_statistical_product = DB::table('tbl_product')
-            ->select('*')->get();
-        return view('admin.statistical.thong-ke-san-pham',  compact('db_statistical_product'));
-
+            ->join('order_details','tbl_product.product_price','=','order_details.order_product_price')
+            ->orderBy('order_qty', 'desc')->limit(10)
+            ->select('*')
+            ->limit(10)
+            ->get();
+        return view('admin.statistical.thong-ke-san-pham-ban-nhieu-nhat', compact('db_statistical_product','db_statistical_order_detail'));
+    }
+//Thống kê sp bán ít nhất
+    public function thongKeSanPhamBanItNhat(Request $request)
+    {
+        $db_statistical_product_sell_least = DB::table('tbl_product')
+//            ->join('order_details','tbl_product.product_name','!=','order_details.order_product_name')
+            ->where('tbl_product.product_name','!=','order_details.order_product_name')
+            ->select('*')
+            ->limit(10)
+            ->get();
+        return view('admin.statistical.thong-ke-san-pham-ban-it-nhat', compact('db_statistical_product_sell_least'));
     }
 
+//Chi tiết đơn hàng
     public function chiTietDonHang(Request $request)
     {
         // lay du lieu 3 table (customer, orders, order_detail)
