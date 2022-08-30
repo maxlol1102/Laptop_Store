@@ -42,7 +42,7 @@
                 <th style="text-align: center">Ảnh sản phẩm</th>
                 <th style="text-align: center">Tên sản phẩm</th>
                 <th style="text-align: center">Mô tả</th>
-                <th style="text-align: center;width: 150px;">
+                <th style="text-align: center;">
                     <?php
                         $index = Session::get('index');
                         if($index) {
@@ -69,17 +69,17 @@
                         }
                     ?>
                 </th>
-                <th style="text-align: center;width: 150px;">
+                <th style="text-align: center;">
                     <?php
                     $index = Session::get('index');
                     if($index) {
                     ?>
-                    Giá tiền
+                    Số lượng
                     <?php Session::put('index', null);
                     } else {
                     ?>
-                    <form id="sap_xep_gia" method="GET">
-                        <select name="asc_desc" class="asc_desc">
+                    <form id="sap_xep_sl" method="GET">
+                        <select name="asc_desc_sl" class="asc_desc_sl">
                             <option selected="selected">Số lượng</option>
                             <option value="asc">Tăng dần</option>
                             <option value="desc">Giảm dần</option>
@@ -87,8 +87,8 @@
                     </form>
                     <script>
                         $(function() {
-                            $('.asc_desc').change(function() {
-                                $('#sap_xep_gia').submit();
+                            $('.asc_desc_sl').change(function() {
+                                $('#sap_xep_sl').submit();
                             })
                         })
                     </script>
@@ -106,7 +106,7 @@
             <tr>
                 <td style="text-align: center"><?php $i++; echo $i; ?></td>
                 <td style="text-align: center">{{ $prod_pro->code}}</td>
-                <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $prod_pro->product_img }}"></td>
+                <td style="text-align: center"><img style="width: 80px;height: 50px" src="public/backend/img_admin/{{ $prod_pro->product_img }}"></td>
                 <td style="text-align: center">{{ $prod_pro->product_name }}</td>   {{-- lay ten sp ra --}}
                 <td style="text-align: center">{{ $prod_pro->product_desc }}</td>  {{-- mota sp --}}
                 <td style="text-align: center">{{ number_format($prod_pro->product_price) }} VND</td>  {{-- gia sp --}}

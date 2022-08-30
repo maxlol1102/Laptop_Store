@@ -23,12 +23,14 @@ session_start();
                 $selected = $request->asc_desc;
                 switch($selected) {
                     case 'asc':
-                        $all_product = DB::table('tbl_product')->orderBy('product_price', 'asc')->get();// lay ra all du lieu
+                        $all_product = DB::table('tbl_product')
+                            ->orderBy('product_price','asc')->get();// lay ra all du lieu
                         $manager_product = view('admin.all_product')->with('all_product',$all_product);
                         return view('admin_layout')->with('admin.all_product',$manager_product);
                     break;
                     case 'desc':
-                        $all_product = DB::table('tbl_product')->orderBy('product_price', 'desc')->get();// lay ra all du lieu
+                        $all_product = DB::table('tbl_product')
+                          ->orderBy('product_price', 'desc')->get();// lay ra all du lieu
                         $manager_product = view('admin.all_product')->with('all_product',$all_product);
                         return view('admin_layout')->with('admin.all_product',$manager_product);
                     break;
@@ -38,7 +40,31 @@ session_start();
                         return view('admin_layout')->with('admin.all_product',$manager_product);
                     break;
                 }
-            } else {
+            };
+            //Sap xếp số lượng SP
+            if($request->asc_desc_sl) {
+                $selected = $request->asc_desc_sl;
+                switch($selected) {
+                    case 'asc':
+                        $all_product = DB::table('tbl_product')
+                            ->orderBy('product_quanity','asc')->get();// lay ra all du lieu
+                        $manager_product = view('admin.all_product')->with('all_product',$all_product);
+                        return view('admin_layout')->with('admin.all_product',$manager_product);
+                        break;
+                    case 'desc':
+                        $all_product = DB::table('tbl_product')
+                            ->orderBy('product_quanity', 'desc')->get();// lay ra all du lieu
+                        $manager_product = view('admin.all_product')->with('all_product',$all_product);
+                        return view('admin_layout')->with('admin.all_product',$manager_product);
+                        break;
+                    default:
+                        $all_product = DB::table('tbl_product')->paginate(10);// lay ra all du lieu
+                        $manager_product = view('admin.all_product')->with('all_product',$all_product);
+                        return view('admin_layout')->with('admin.all_product',$manager_product);
+                        break;
+                }
+            }
+            else {
                 // tim kiem san pham
                 if($request->isMethod('get')) {
                     $search = $request->search;
@@ -56,6 +82,7 @@ session_start();
                 return view('admin_layout')->with('admin.all_product',$manager_product);
             }
         }
+
         // ham tim kiem san pham
         /*public function all_product_search(Request $request) {
             if($request->isMethod('get')) {
@@ -158,5 +185,5 @@ session_start();
             return Redirect::to('all-product');  // tra ve lai all category
         }
 
-      
+
     }
