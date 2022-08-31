@@ -84,7 +84,6 @@ class CustomerController extends Controller
                     ->select('*')->paginate(10);
 
                 $total_xuly = DB::table('orders')->where('order_status', 0)->count();
-
                 return view('admin.order_manager', compact('db_order','total_xuly'));
             }
         // chi tiet don hang
@@ -109,7 +108,7 @@ class CustomerController extends Controller
             public function orderManagerVerified() {
                 $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                -> orderBy('order_day')
+                ->orderBy('order_day')
                 ->where('order_status', 1)->select('*')->paginate(10);
                 return view('admin.order_manager_verified', compact('db'));
             }
@@ -129,6 +128,7 @@ class CustomerController extends Controller
                 }
                 $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
+                ->orderBy('order_day')
                 ->where('order_status', 2)->select('*')->get();
                 return view('admin.order_manager_successfully', compact('db'));
 
@@ -152,7 +152,7 @@ class CustomerController extends Controller
                         Session::put('value', $search);
                         $db = DB::table('orders')
                         ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                            -> orderBy('order_day')
+                            ->orderBy('order_day')
                             ->where('orders.order_status', 3)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
                         return view('admin.order-manager-callback', compact('db'));
                     }

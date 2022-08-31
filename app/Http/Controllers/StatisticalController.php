@@ -12,6 +12,7 @@ use Symfony\Component\Console\Input\Input;
 
 class StatisticalController extends Controller
 {
+//thong ke hang het
     public function hangCon(Request $request)
     {
         // tim kiem san pham
@@ -25,7 +26,7 @@ class StatisticalController extends Controller
         $product = DB::table('tbl_product')->where('product_status', 1)->get();
         return view('admin.statistical.hang-con', compact('product'));
     }
-
+//thong ke hang con
     public function hangHet(Request $request)
     {
         // tim kiem san pham
@@ -81,7 +82,7 @@ class StatisticalController extends Controller
         return view('admin.statistical.chi-tiet-don-hang', compact('db_order_detail', 'db_order', 'db_join'));
     }
 
-// Start doanh thu nha!!!
+// Start Thong ke doanh thu
     public function doanhThu()
     {
  //ĐƠN HÀNG

@@ -21,9 +21,6 @@
                     </tr>
                     </thead>
                     <tbody>
-<!--                    --><?php
-//                    $tbl_order= $Product::orderBy('order_day', 'desc')->get();
-//                    ?>
                     @foreach ($Product as $item)
                         <tr>
                             <td class="order_id" style="text-align: center">

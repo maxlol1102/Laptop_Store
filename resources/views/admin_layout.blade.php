@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix" style="background: #626262">
 <!--logo start-->
 <div class="brand" style="background: #626262">
-    <a href="index.html" class="logo">
+    <a href="{{URL::to('/dashboard')}}" class="logo">
         ADMIN
     </a>
     <div class="sidebar-toggle-box">
@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         {{--<li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
                         <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>--}}
                         <li><a href="{{URL::to('thong-ke-san-pham-ban-nhieu-nhat')}}">Sản phẩm bán nhiều nhất</a></li>
-                        <li><a href="{{URL::to('thong-ke-san-pham-ban-it-nhat')}}">Sản phẩm bán ít nhất</a></li>
+{{--                        <li><a href="{{URL::to('thong-ke-san-pham-ban-it-nhat')}}">Sản phẩm bán ít nhất</a></li>--}}
                         <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
                     </ul>
                 </li>
