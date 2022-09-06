@@ -14,7 +14,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         padding-bottom: 20px;
         float: left;
         margin-left: 500px;
-        
     }
 </style>
 {{-- datatable bootstrap4 --}}
@@ -173,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <div class="footer" style="background: #626262; text-align: center ;position: fixed;bottom: 0;width:100%">
             
-            <p style="padding-left:0px">Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+            <p style="padding-right: 200px" >Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
             
         </div>
 <!-- / footer -->
