@@ -128,7 +128,7 @@ class CustomerController extends Controller
                 }
                 $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                ->orderBy('order_day')
+                ->orderBy('order_day','desc')
                 ->where('order_status', 2)->select('*')->get();
                 return view('admin.order_manager_successfully', compact('db'));
 
@@ -140,7 +140,8 @@ class CustomerController extends Controller
             }
         // giao hang thanh cong
             public function successOrder($order_id) {
-                DB::table('orders')->where('order_id', $order_id)->update(['order_status' => 2]);
+                DB::table('orders')
+                    ->where('order_id', $order_id)->update(['order_status' => 2]);
                 return Redirect::to('/order-manager-verified');
             }
         // giao dien trang thu hoi don hang

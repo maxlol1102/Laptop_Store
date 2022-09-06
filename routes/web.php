@@ -74,11 +74,11 @@ use App\Http\Controllers\StatisticalController;
         // thong ke
             Route::get('/hang-con', 'StatisticalController@hangCon');
             Route::get('/hang-het', 'StatisticalController@hangHet');
-            Route::get('/thong-ke-san-pham', 'StatisticalController@thongKeSanPham');
+//            Route::get('/thong-ke-san-pham', 'StatisticalController@thongKeSanPham');
             Route::get('/chi-tiet-don-hang/{order_id}', 'StatisticalController@chiTietDonHang');
             Route::get('/doanh-thu', 'StatisticalController@doanhThu');
             Route::get('/thong-ke-san-pham-ban-nhieu-nhat', 'StatisticalController@thongKeSanPhamBanNhieuNhat');
-            Route::get('/thong-ke-san-pham-ban-it-nhat', 'StatisticalController@thongKeSanPhamBanItNhat');
+//            Route::get('/thong-ke-san-pham-ban-it-nhat', 'StatisticalController@thongKeSanPhamBanItNhat');
 
     // end admin
 

@@ -49,12 +49,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--logo start-->
 <div class="brand" style="background: #626262">
     <a href="index.html" class="logo">
-        Quản lý 
+        Quản lý
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
     </div>
-    
+
 </div>
 {{-- logo end! --}}
 <div class="top-nav clearfix" >
@@ -121,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         {{--<li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
                         <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>--}}
-                        <li><a href="{{URL::to('thong-ke-san-pham')}}">Thống kê sản phẩm</a></li>
+                        <li><a href="{{URL::to('thong-ke-san-pham-ban-nhieu-nhat')}}">Thống kê sản phẩm bán nhiều nhất</a></li>
                         <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
                     </ul>
                 </li>
@@ -165,15 +165,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section class="wrapper" style="background: #626262">
         @yield('admin_content')
         @yield('chart')
-        
+
         {{-- // goi ra tu dashboard.blade.php --}}
     </section>
 <!-- footer -->
 
         <div class="footer" style="background: #626262; text-align: center ;position: fixed;bottom: 0;width:100%">
-            
+
             <p style="padding-right: 200px" >Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
-            
+
         </div>
 <!-- / footer -->
 </section>
