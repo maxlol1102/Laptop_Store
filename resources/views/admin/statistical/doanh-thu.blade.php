@@ -43,7 +43,7 @@
                     <th style="text-align: center">Chi tiết</th>
                 </tr>
                     <tr>
-                        <td style="text-align: center">8/2022</td>
+                        <td style="text-align: center">9/2022</td>
                         <td style="text-align: center">{{$tong_dh}}</td>
                         <td style="text-align: center">{{ number_format($tong_tien,0, '','.') }} VND</td>
                         <td style="text-align: center"><a href="{{URL::to('/hang-da-ban')}}">Chi tiết</a></td>
@@ -88,45 +88,137 @@
                 </tbody>
             </table>
         </div>
-        <div class="panel-heading">
-            Biểu đồ doanh thu
-            <i class="fa fa-bar-chart"></i>
-        </div>
-        <div class="row">
+    </div>
+@endsection
+
+
+@section('chart')
+<style>
+    #wrapChart{
+        width: 1050px;
+ 
+    }
+
+</style>
+
+    <div class="panel-heading">
+        Biểu đồ
+        <i class="fa fa-bar-chart"></i>
+    </div>
+        <div class="row" style="background-color:#ffffff; padding: 20px; margin:0px">
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <div class="col-xl-6" style="flex: 0 0 auto;width: 50%;">
                 <div class="card mb-4">
-                    <div class="card-header">
-                        Số đơn trong các tháng
-                    </div>
-                    <div class="card-body">
-                        <canvas id="myAreaChart" width="100%" height="40"></canvas>
-                    </div>
-                </div>
-            </div>
+                    
+                    <div id="wrapChart">
+                        <div id="piechart" style="width:100%; max-width:400px; height:500px;float:left;"></div>
 
-            <div class="col-xl-6" style="flex: 0 0 auto;width: 50%;">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        Lợi nhuận trong các năm
+                        <div id="LineChart" style="width:100%; max-width:650px; height:500px; float:left"></div>
                     </div>
-                    <div class="card-body">
-                        <canvas id="myBarChart" width="100%" height="40"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
+                 
+            <!-- Bảng PieChart -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+            <script type="text/javascript">
+                  google.charts.load('current', {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(function () {
+                    load_data();
+                    load_line_data();
+                });
+                function drawChart(drawChart) {
+            
+                    let jsonData = drawChart;
+                    let data = new google.visualization.arrayToDataTable([]);
+                    data.addColumn({type: 'string', label:'Name'});
+                    data.addColumn({type: 'number', label: 'Order_status'});
+                
+                    $.each(jsonData, (i, jsonData) => {
+                        let name = jsonData.name;
+                        let order_status = jsonData.order_status;
+                        data.addRows([
+                            [name, order_status]
+                        ]);
+                    });
+                    var options = {
+                        title: 'Thống kê đơn hàng',
+                        is3D: true,
+                        // width: '100%',
+                        // height: '100%',
+                    // colors: ['#D44E41'],
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                    chart.draw(data, options);
+                }
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-                crossorigin="anonymous"></script>
-        <script type="text/javascript">
+            </script>
+            <script>
+                function load_data() {
+                    $.ajax({
+                        url: 'fetch_data',
+                        method: 'GET',
+                        data: {
+                            "_token": "{{ csrf_token() }}"
+                        },
+                        dataType: "JSON",
+                        success: function (data) {
+                            drawChart(data);
+                        }
+                    });
+                }
+            </script>
 
-            // Biến in ra dữ liệu
-            var _ydata = JSON.parse('{!! json_encode($months) !!}');
-            var _xdata = JSON.parse('{!! json_encode($monthCount) !!}');
-        </script>
-        <!-- Truy cập vào trang để bảng -->
-        <script src="{{asset('public')}}/assets/demo/chart-area-demo.js"></script>
-        <script src="{{asset('public')}}/assets/demo/chart-bar-demo.js"></script>
+            <!-- Bảng lineChart -->
+            <script>
+                function drawLineChart(drawLineChart) {
+                
+                    let jsonData = drawLineChart;
+                    console.log(jsonData);
+                    let data = new google.visualization.arrayToDataTable([]);
+                    data.addColumn({type: 'string', label:'label'});
+                    data.addColumn({type: 'number', label: 'amount'});
+                
+                    $.each(jsonData, (i, jsonData) => {
+                        let label = jsonData.label;
+                        let amount = jsonData.amount;
+                        data.addRows([
+                            [label, amount]
+                        ]);
+                        
+                    });
+
+                    // Set Options
+                    var options = {
+                        title: 'Doanh thu qua từng tháng trong năm nay',
+                        vAxis: {title: 'Giá (Triệu VND)'},
+                        hAxis: {title: 'Tháng'},
+                        legend: 'none'
+                    };
+                    // Draw Chart
+                    var chart = new google.visualization.LineChart(document.getElementById('LineChart'));
+                    chart.draw(data, options);
+                }
+         
+                function load_line_data() {
+                    $.ajax({
+                        url: 'DoanhThuThang',
+                        method: 'GET',
+                        data: {
+                            "_token": "{{ csrf_token() }}"
+                        },
+                        dataType: "JSON",
+                        success: function (data) {
+                            drawLineChart(data);
+                        }
+                    });
+                }
+            </script>
+        
+
+
+
         <footer class="panel-footer">
             <div class="row">
                 <div class="col-sm-5 text-center">
@@ -136,6 +228,5 @@
                 </div>
             </div>
         </footer>
-    </div>
     </div>
 @endsection

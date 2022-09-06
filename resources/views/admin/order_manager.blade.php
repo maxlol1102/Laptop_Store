@@ -17,7 +17,7 @@
     <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
-        <p style="text-align: center; background: #ddede0; color:red; font-weight:bold"><b style="color:black">Tổng số đơn hàng đang chờ xử lí:</b>
+        <p style="text-align: center; background: #ddede0; color:red; font-weight:bold ;line-height:50px;"><b style="color:black">Tổng số đơn hàng đang chờ xử lí:</b>
             {{$total_xuly}}
         </p>
         <tr>

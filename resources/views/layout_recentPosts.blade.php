@@ -13,6 +13,7 @@
     <link href="{{asset('public/frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{asset('public/frontend/images/shortcut.png')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">

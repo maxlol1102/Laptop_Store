@@ -10,6 +10,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     .sub li a{
     background:#626262
     }
+    #logo{
+        padding-bottom: 20px;
+        float: left;
+        margin-left: 500px;
+    }
 </style>
 {{-- datatable bootstrap4 --}}
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/datatables.min.css"/>
@@ -35,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/dashboard/js/jquery2.0.3.min.js')}}"></script>
 <script src="{{asset('public/backend/dashboard/js/raphael-min.js')}}"></script>
 <script src="{{asset('public/backend/dashboard/js/morris.js')}}"></script>
+<link rel="shortcut icon" type="image/png" href="{{asset('public/frontend/images/shortcut.png')}}"/>
 </head>
 <body >
 <section id="container">
@@ -42,16 +48,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix" style="background: #626262">
 <!--logo start-->
 <div class="brand" style="background: #626262">
-    <a href="{{URL::to('/dashboard')}}" class="logo">
-        ADMIN
+    <a href="index.html" class="logo">
+        Quản lý 
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
     </div>
+    
 </div>
 {{-- logo end! --}}
 <div class="top-nav clearfix" >
     <!--search & user info start-->
+    <div id = "logo">
+        <a href="{{URL::to('/dashboard')}}" ><img href="{{URL::to('/dashboard')}}" src="{{asset('public/frontend/images/shortcut.png')}}" style="width:80px;height:50px"></a>
+    </div>
     <ul class="nav pull-right top-menu">
         <!-- user login dropdown start-->
         <li class="dropdown">
@@ -83,6 +93,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div style="background:#626262" id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <div class="leftside-navigation"style="background:#626262">
+        <br>
             <ul class="sidebar-menu" id="nav-accordion">
                 <li >
                     <a class="active" href="{{URL::to('/dashboard')}}">
@@ -110,8 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         {{--<li><a href="{{URL::to('hang-con')}}">Hàng còn</a></li>
                         <li><a href="{{URL::to('hang-het')}}">Hàng hết</a></li>--}}
-                        <li><a href="{{URL::to('thong-ke-san-pham-ban-nhieu-nhat')}}">Sản phẩm bán nhiều nhất</a></li>
-{{--                        <li><a href="{{URL::to('thong-ke-san-pham-ban-it-nhat')}}">Sản phẩm bán ít nhất</a></li>--}}
+                        <li><a href="{{URL::to('thong-ke-san-pham')}}">Thống kê sản phẩm</a></li>
                         <li><a href="{{URL::to('doanh-thu')}}">Doanh thu</a></li>
                     </ul>
                 </li>
@@ -153,14 +163,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper" style="background: #626262">
-        @yield('admin_content')  {{-- // goi ra tu dashboard.blade.php --}}
+        @yield('admin_content')
+        @yield('chart')
+        
+        {{-- // goi ra tu dashboard.blade.php --}}
     </section>
 <!-- footer -->
 
-        <div class="footer" style="background: #626262; text-align: center">
-            <div class="wthree-copyright">
-            <p>Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
-            </div>
+        <div class="footer" style="background: #626262; text-align: center ;position: fixed;bottom: 0;width:100%">
+            
+            <p style="padding-right: 200px" >Được phát triển bởi Sinh Viên Trang- Vũ  K11-BTECC01 Học viện Cộng nghệ Thông tin BKACAD </p>
+            
         </div>
 <!-- / footer -->
 </section>

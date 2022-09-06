@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Models\DataAnalytics;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 use Symfony\Component\Console\Input\Input;
 
@@ -142,29 +143,72 @@ class StatisticalController extends Controller
             ->where('order_status', 2)
             ->sum('order_total_price');
 
-        $data_Y = Orders::select('order_id', 'created_at')
-            ->where('order_status', 2)
-            ->get()
-            ->groupBy(function ($data) {
-                return Carbon::parse($data->created_at)->format('Y');
-            });
+        
 
-// Biểu đồ
-        //Tháng
-        $data = Orders::select('order_id', 'created_at')
-            ->where('order_status', 2)
-            ->get()
-            ->groupBy(function ($data) {
-                return Carbon::parse($data->created_at)->format('M');
-            });
 
-        $months = [];
-        $monthCount = [];
+        
+        return view('admin.statistical.doanh-thu', compact('tong_tien_nam_haihai','tong_tien_nam_haimot','tong_tien_nam_haimuoi', 'tong_tien', 'tong_dh','tong_dh_nam_haimuoi','tong_dh_nam_haimot','tong_dh_nam_haihai','tong_dh_all', 'tong_dt'));
+    }
+    public function fetchData() {
+       
+     $data = Orders::select(DB::raw('order_status , COUNT(*) as count_order_status'))
+        ->groupBy('order_status')
+        ->get();
 
-        foreach ($data as $month => $values) {
-            $months[] = $month;
-            $monthCount[] = count($values);
+        $status = [
+            'Đang xử lý',
+            'Đã giao',
+            'Đang giao',
+            'Thu hồi'
+        ];
+        
+        foreach($data->toArray() as $row)
+        {
+         $output[] = array(
+            'name' => $status[$row['order_status']],
+           'order_status' => $row['count_order_status']
+         );
         }
-        return view('admin.statistical.doanh-thu', compact('data', 'months', 'monthCount', 'tong_tien_nam_haihai','tong_tien_nam_haimot','tong_tien_nam_haimuoi', 'tong_tien', 'tong_dh','tong_dh_nam_haimuoi','tong_dh_nam_haimot','tong_dh_nam_haihai','tong_dh_all', 'tong_dt'));
+        echo json_encode($output);
+    }
+
+    public function DoanhThuThang(){
+        $totals = [];
+        for($i = 1; $i <= 12; $i++){
+            if($i < 10){
+                $thang = DB::table('Orders')
+                -> where('created_at', 'like', '%2022-0'.$i.'%')
+                -> sum('order_total_price');
+            }else{
+                $thang = DB::table('Orders')
+                -> where('created_at', 'like', '%2022-'.$i.'%')
+                -> sum('order_total_price');
+            }
+            $totals[] = $thang;
+        }
+
+        $status = [
+            'T1',
+            'T2',
+            'T3',
+            'T4',
+            'T5',
+            'T6',
+            'T7',
+            'T8',
+            'T9',
+            'T10',
+            'T11',
+            'T12'
+        ];
+        
+        for($i = 0; $i < 12; $i++){
+         $output[] = array(
+            'label' => $status[$i],
+            'amount' => (int) $totals[$i]
+         );
+        }
+        echo json_encode($output);
+
     }
 }
