@@ -9,20 +9,7 @@
         <br>
     </div>
         <div class="table-responsive">
-        <div style="text-align: center; background: #ddede0">
-            <font style="color: red;font-size:20px">
-                <?php
-                $message = Session::get('message');
-                $mess = Session::get('notiAddCategory');
-                if($message || $mess){
-                echo $message;
-                echo $mess;
-                Session::put('message',null);
-                Session::put('notiAddCategory',null);
-                }
-                ?>
-            </font>
-        </div>
+        
     <table class="table table-striped table-bordered">
         <thead style="background: #ddede0">
         <tr>
@@ -31,7 +18,7 @@
             <th style="text-align: center">Mã sản phẩm </th>
             <th style="text-align: center">Tên sản phẩm</th>
             <th style="text-align: center">Ảnh sản phẩm</th>
-            <th style="text-align: center">Số lượng</th>
+
         </tr>
         </thead>
         <tbody><?php $i = 0; ?>
@@ -42,7 +29,7 @@
             <td style="text-align: center">{{ $item->code}}</td>
             <td style="text-align: center">{{ $item->product_name }}</td>
             <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $item->product_img }}"></td>
-            <td style="text-align: center"></td>
+
         </tr>
         @endforeach
         </tbody>
@@ -67,20 +54,7 @@
         <br>
     </div>
     <div class="table-responsive">
-        <div style="text-align: center; background: #ddede0">
-            <font style="color: red;font-size:20px">
-                <?php
-                $message = Session::get('message');
-                $mess = Session::get('notiAddCategory');
-                if($message || $mess){
-                    echo $message;
-                    echo $mess;
-                    Session::put('message',null);
-                    Session::put('notiAddCategory',null);
-                }
-                ?>
-            </font>
-        </div>
+        
         <table class="table table-striped table-bordered">
             <thead style="background: #ddede0">
             <tr>
@@ -89,7 +63,7 @@
                 <th style="text-align: center">Mã sản phẩm </th>
                 <th style="text-align: center">Tên sản phẩm</th>
                 <th style="text-align: center">Ảnh sản phẩm</th>
-                <th style="text-align: center">Số lượng</th>
+       
             </tr>
             </thead>
             <tbody><?php $i = 0; ?>
@@ -100,7 +74,7 @@
                     <td style="text-align: center">{{ $item->code}}</td>
                     <td style="text-align: center">{{ $item->product_name }}</td>
                     <td style="text-align: center"><img style="width: 35px;height: 35px" src="public/backend/img_admin/{{ $item->product_img }}"></td>
-                    <td style="text-align: center"></td>
+       
                 </tr>
             @endforeach
             </tbody>

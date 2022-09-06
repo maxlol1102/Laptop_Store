@@ -17,7 +17,7 @@
     <div class="table-responsive">
     <table class="table table-striped table-bordered">
         <thead>
-        <p style="text-align: center; background: #ddede0"><b>Tổng số đơn hàng đang vận chuyển:
+        <p style="text-align: center; background: #ddede0;line-height:50px;"><b>Tổng số đơn hàng đang vận chuyển:
                 @foreach ($db as $item)
                     <?php
                     $count = count($db);

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StatisticalController;
 //sử dụng prefix để URL khi định nghĩa route ngắn gọn dễ nhìn hơn
 //frontend
     Route::get('/','HomeController@index');  //trieu hoi ham homectr va vao ham index
@@ -105,6 +105,7 @@ use Illuminate\Support\Facades\Route;
         // cap nhat mat khau khach hang
             Route::post('/update-pass-customer', 'CustomerController@update_pass_customer');
     // end customer
-
+            Route::get('/fetch_data', 'StatisticalController@fetchData');
+            Route::get('/DoanhThuThang', 'StatisticalController@DoanhThuThang');
 //end backend
 

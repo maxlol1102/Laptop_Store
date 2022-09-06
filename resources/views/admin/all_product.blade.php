@@ -19,21 +19,7 @@
         </form><br>
     </div>
     <div class="table-responsive" style="text-align: center">
-        <a href="#" style="color: red;font-size:20px">
-            <?php
-            $message = Session::get('message');
-            if($message){
-            echo $message;
-            Session::put('message',null);// chi cho phep in ra 1 lan
-            }
-            // thong bao trang thai chon file anh
-            $messageEditProduct = Session::get('messageEditProduct');
-                if($messageEditProduct){
-                    echo $messageEditProduct;
-                    Session::put('messageEditProduct',null);// chi cho phep in ra 1 lan
-                }
-            ?>
-        </a>
+
         <table class="table table-striped table-bordered">
             <thead style="background: #ddede0 ">
             <tr>

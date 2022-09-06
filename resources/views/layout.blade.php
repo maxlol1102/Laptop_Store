@@ -13,6 +13,7 @@
     <link href="{{asset('public/frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{{asset('public/frontend/images/shortcut.png')}}"/>
     <style type="text/css">
        *{
            font-family: "Lato", sans-serif;
