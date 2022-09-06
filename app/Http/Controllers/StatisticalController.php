@@ -13,6 +13,7 @@ use Symfony\Component\Console\Input\Input;
 
 class StatisticalController extends Controller
 {
+//thong ke hang het
     public function hangCon(Request $request)
     {
         // tim kiem san pham
@@ -26,7 +27,7 @@ class StatisticalController extends Controller
         $product = DB::table('tbl_product')->where('product_status', 1)->get();
         return view('admin.statistical.hang-con', compact('product'));
     }
-
+//thong ke hang con
     public function hangHet(Request $request)
     {
         // tim kiem san pham
@@ -40,19 +41,32 @@ class StatisticalController extends Controller
         $product = DB::table('tbl_product')->where('product_status', 0)->get();
         return view('admin.statistical.hang-het', compact('product'));
     }
-
-    public function thongKeSanPham(Request $request)
+//Thống kê sp bán nhiều nhất
+    public function thongKeSanPhamBanNhieuNhat(Request $request)
     {
-//        $db_statistical_category = DB::table('tbl_category_product')
-//            ->where('category_id',$request->category_id)
-//            ->select('*')->get();
-
+        $db_statistical_order_detail =DB::table('order_details')
+            ->select('order_details.order_qty')->get();
         $db_statistical_product = DB::table('tbl_product')
-            ->select('*')->get();
-        return view('admin.statistical.thong-ke-san-pham',  compact('db_statistical_product'));
-
+            ->join('order_details','tbl_product.product_price','=','order_details.order_product_price')
+            ->orderBy('order_qty', 'desc')->limit(10)
+            ->select('*')
+            ->limit(10)
+            ->get();
+        return view('admin.statistical.thong-ke-san-pham-ban-nhieu-nhat', compact('db_statistical_product','db_statistical_order_detail'));
+    }
+//Thống kê sp bán ít nhất
+    public function thongKeSanPhamBanItNhat(Request $request)
+    {
+        $db_statistical_product_sell_least = DB::table('tbl_product')
+//            ->join('order_details','tbl_product.product_name','!=','order_details.order_product_name')
+            ->where('tbl_product.product_name','!=','order_details.order_product_name')
+            ->select('*')
+            ->limit(10)
+            ->get();
+        return view('admin.statistical.thong-ke-san-pham-ban-it-nhat', compact('db_statistical_product_sell_least'));
     }
 
+//Chi tiết đơn hàng
     public function chiTietDonHang(Request $request)
     {
         // lay du lieu 3 table (customer, orders, order_detail)
@@ -69,7 +83,7 @@ class StatisticalController extends Controller
         return view('admin.statistical.chi-tiet-don-hang', compact('db_order_detail', 'db_order', 'db_join'));
     }
 
-// Start doanh thu nha!!!
+// Start Thong ke doanh thu
     public function doanhThu()
     {
  //ĐƠN HÀNG

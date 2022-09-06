@@ -77,7 +77,8 @@ use App\Http\Controllers\StatisticalController;
             Route::get('/thong-ke-san-pham', 'StatisticalController@thongKeSanPham');
             Route::get('/chi-tiet-don-hang/{order_id}', 'StatisticalController@chiTietDonHang');
             Route::get('/doanh-thu', 'StatisticalController@doanhThu');
-
+            Route::get('/thong-ke-san-pham-ban-nhieu-nhat', 'StatisticalController@thongKeSanPhamBanNhieuNhat');
+            Route::get('/thong-ke-san-pham-ban-it-nhat', 'StatisticalController@thongKeSanPhamBanItNhat');
 
     // end admin
 
