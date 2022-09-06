@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\Route;
     Route::get('/','HomeController@index');  //trieu hoi ham homectr va vao ham index
     Route::get('/trang-chu','HomeController@index');
     Route::post('/trang-chu','HomeController@index');
-    //Route::get('/trang-chu1','HomeController@category');
     Route::get('/lien-he','HomeController@index1');
+    Route::get('/tuyen-dung','HomeController@recruit');
+    Route::get('/bai-viet-gan-day','HomeController@recentPosts');
     Route::get('/detail_product/{product_code}','ProductController@detail_product');
-    //Route::get('/category_product/{category_id}','ProductController@tbl_category_product');
-    //Route::post('/category_product/{category_id}','ProductController@tbl_category_product');
     Route::post('/save-cart','CartController@save_cart');
     Route::get('/show-cart','CartController@show_cart');
     Route::post('/show-cart','CartController@show_cart');
@@ -19,9 +18,6 @@ use Illuminate\Support\Facades\Route;
     Route::post('/update-cart-quantity','CartController@update_cart_quantity');
     //categoryproduct
         Route::get('/category_product/{category_id}','ProductController@category');
-        // Route::get('/add-category-product','CategoryProduct@add_category_product');
-        // Route::get('/all-category-product','CategoryProduct@all_category_product');// _ham thi _s
-        // Route::post('/save-category-product','CategoryProduct@save_category_product');
 //end frontend
 
 
@@ -78,11 +74,12 @@ use Illuminate\Support\Facades\Route;
         // thong ke
             Route::get('/hang-con', 'StatisticalController@hangCon');
             Route::get('/hang-het', 'StatisticalController@hangHet');
-            Route::get('/hang-da-ban', 'StatisticalController@hangDaBan');
-            Route::get('/doanh-thu', 'StatisticalController@doanhThu');
+            Route::get('/thong-ke-san-pham', 'StatisticalController@thongKeSanPham');
             Route::get('/chi-tiet-don-hang/{order_id}', 'StatisticalController@chiTietDonHang');
-            Route::get('/chi-tiet-doanh-thu/{currentMonth}', 'StatisticalController@chiTietDoanhThu');
-            Route::get('/lich-su-chi-tiet-doanh-thu/{thang}', 'StatisticalController@lichSuChiTietDoanhThu');
+            Route::get('/doanh-thu', 'StatisticalController@doanhThu');
+            Route::get('/thong-ke-san-pham-ban-nhieu-nhat', 'StatisticalController@thongKeSanPhamBanNhieuNhat');
+            Route::get('/thong-ke-san-pham-ban-it-nhat', 'StatisticalController@thongKeSanPhamBanItNhat');
+
     // end admin
 
     //customer

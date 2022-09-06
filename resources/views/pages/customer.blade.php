@@ -1,10 +1,11 @@
 @extends('layout_customer')
 @section('content')
+
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs" style="text-align: center">
                 <ol class="breadcrumb">
-                    <li class="active"><h3>QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
+                    <li class="active"><h3 style="font-size: 30px">QUẢN LÝ ĐƠN HÀNG CỦA BẠN</h3></li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
@@ -12,48 +13,14 @@
                     <thead>
                     <tr class="cart_menu">
                         <td class="order_id" style="text-align: center">Mã đơn hàng</td>
-                        <td class="order_day" style="text-align: center"> Ngày đặt hàng
-                                                        <?php
-                                                        $value = Session::get('value');
-                                                        if($value) {
-                                                        ?>
-                                                        Ngày đặt hàng
-                                                        <?php Session::put('value', null);
-                                                        } else {
-                                                        ?>
-                                                        <div>
-                                                            <form id="sap_xep_gia" method="GET">
-                                                                <select name="asc_desc" class="asc_desc">
-                                                                    <option selected="selected">Date</option>
-                                                                    <option value="asc">Cũ nhất </option>
-                                                                    <option value="desc">Mới nhất</option>
-                                                                </select>
-                                                            </form>
-                                                            <script>
-                                                                $(function() {
-                                                                    $('.asc_desc').change(function() {
-                                                                        $('#sap_xep_gia').submit();
-                                                                    })
-                                                                })
-                                                            </script>
-                                                        </div><br>
-                                                        <?php
-                                                            }
-                                                        ?>
-                        </td>
+                        <td class="order_day" style="text-align: center"> Ngày đặt hàng</td>
                         <td class="order_total_price" style="text-align: center">Tổng tiền (chưa bao gôm thuế VAT)</td>
                         <td class="order_status" style="text-align: center">Trạng thái</td>
                         <td class="order_detail" style="text-align: center">Chi tiết đơn hàng</td>
                         <td class="delete_order" style="text-align: center">Hủy đơn hàng</td>
-                        <td style="text-align: center"><a href="{{URL::to('/info-customer')}}">Thông tin của bạn</a>
-                        </td>
-                        <td style="text-align: center"><a href="{{URL::to('/show-cart')}}">Giỏ hàng</a></td>
                     </tr>
                     </thead>
                     <tbody>
-<!--                    --><?php
-//                    $tbl_order= $Product::orderBy('order_day', 'desc')->get();
-//                    ?>
                     @foreach ($Product as $item)
                         <tr>
                             <td class="order_id" style="text-align: center">
@@ -95,7 +62,7 @@
                             <td class="cart_delete" style="text-align: center">
                                 <a onclick="return confirm('Bạn có chắc là muốn xóa danh mục này không?')"
                                    class="cart_quantity_delete" href="{{URL::to('/delete-order')}}/{{$item->order_id}}"><i
-                                        class="fa fa-times"></i></a>
+                                        class="fa fa-times" style="color: red"></i></a>
                             </td>
                             <?php
                             }

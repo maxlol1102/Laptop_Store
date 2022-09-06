@@ -40,7 +40,7 @@
                             <input style="font-family: Times New Roman;" type="text" name="phone" id="name" placeholder="Số điện thoại"/>
                         </div>
                         <div class="form-group form-button">
-                            <input style="font-family: 'Times New Roman', Times, serif; font-size: 18px" type="submit" name="signup" id="signup" class="form-submit" value="Đăng ký"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input style="font-family: 'Times New Roman', Times, serif; font-size: 18px " type="submit" name="signup" id="signup" class="form-submit" value="Đăng ký"/>&nbsp;&nbsp;&nbsp;&nbsp;
                             <a style="font-family: 'Times New Roman', Times, serif; font-size: 18px" href="{{URL::to('/signin')}}">Đăng nhập</a>
                         </div>
                     </form>

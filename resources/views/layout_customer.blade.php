@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | My-COMPUTER</title>
+    <!-- CSS only -->
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -14,8 +15,91 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <style type="text/css">
+        *{
+            font-family: "Lato", sans-serif;
+        }
         .productinfo img{
             height: 200px;
+        }
+        /*Search btn*/
+        .search {
+            width: 100%;
+            position: relative;
+            display: flex;
+        }
+
+        .searchTerm {
+            width: 100%;
+            border: 3px solid #FE980F;
+            border-right: none;
+            padding: 5px;
+            height: 36px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            color: #9DBFAF;
+        }
+
+        .searchTerm:focus{
+            color: #FE980F;
+        }
+
+        .searchButton {
+            width: 40px;
+            height: 36px;
+            border: 1px solid #FE980F;
+            background: #FE980F;
+            text-align: center;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /*Resize the wrap to see the search bar change!*/
+        .wrap{
+            width: 30%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /*end*/
+        #header_bar{
+            height: 50px;
+            padding: 11px 0;
+            width: 200px;
+            color: #FFFFFF;
+            font-size: 20px;
+            text-transform: uppercase;
+            text-align: center;
+
+            display: inline-block;
+        }
+        #header_bar:hover{
+            background-color: #FFFFFF;
+            color: #d58512;
+        }
+
+        #dropdownMenuLink{
+            background-color: #FE980F;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 15px;
+            padding: 7px;
+        }
+        #dropdownMenuLink:hover{
+            background-color: #000000;
+            color:#FE980FFF ;
+        }
+
+        .dropdown-menu{
+            padding: 0px;
+           font-size: 15px;
+        }
+        .dropdown-menu li {
+            font-size: 15px;
+            color: #000000;
         }
     </style>
     <link rel="shortcut icon" href="{{asset('public/frontend/images/logo.jpg')}}">
@@ -26,101 +110,151 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.pack.js"></script>
 </head><!--/head-->
 <body style="background-color: #FFFFFF;">
-    <header id="header"><!--header-->
-        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;"><!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="logo pull-left">
-                            <ul class="nav navbar-nav">
-                                <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li><a href="{{url('/lien-he')}}">Thông tin liên hệ</a></li>
-                            </ul>
-                            <div style="text-align: center">
-                                <!-- Search form -->
-                                <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
-                                    <input type="hidden" name="_token" value="{{ csrf_token()}}"> {{-- khong chuyen trang sau khi load form --}}
-                                    <input style="text-align: center" name="search" class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm sản phẩm" aria-label="Search" value="<?php
-                                        $value = Session::get('value');
-                                        if($value) {
-                                            echo $value;
-                                            Session::put('value', null);
-                                        }
-                                    ?>">
-                                </form>
-                                <?php
-                                    foreach ($Product as $value) {}
-                                    $dem = count($Product);
-                                    $noti = Session::get('noti');
-                                    if($noti) {
-                                        echo $noti."<b>".$dem."</b> kết quả";
-                                        Session::put('noti', null);
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="logo pull-right">
-                            <ul class="nav navbar-nav">
-                                <?php
-                                    $customer_id = Session::get('customer_id');
-                                    if($customer_id == null) {
-                                ?> {{-- neu kh chua login thi chuyen den trang login --}}
-                                    <li><a href="{{URL::to('/signin')}}"><i class="fa fa-lock"></i> Đăng nhập Khách hàng</a></li>
-                                    <li><a href="{{url('/admin-login')}}"><i class="fa fa-lock"></i> Đăng nhập Admin</a></li>
-                                    <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <?php
-                                    } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
-                                ?>
-                                    <li><a href="{{URL::to('/customer')}}"><i class="fa fa-user"></i> <?php $name = Session::get('customer_name'); echo $name; ?></a></li>
-                                    <li><a href="{{URL::to('/logout-customer')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
-                                <?php
-                                    }
-                                ?>
-                            </ul>
+<header class="" id="header"><!--header-->
+    <div class="header_top" style="position: fixed;z-index: 13;width: 100%; padding-bottom: 5px"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo pull-left">
+                        <img src="{{asset('public/frontend/images/logos.png')}}" width="100px"; height=50px style="padding-top: 5px" ">
+                        <div style="text-align: center">
+                            <!-- Search form -->
+                            <form action="{{URL::to('/trang-chu')}}" method="post" enctype="multipart/form-data" class="form-inline md-form mr-auto mb-4">
+                                <div class="wrap">
+                                    <div class="search">
+                                        <input type="hidden" name="_token" value="{{ csrf_token()}}"> {{-- khong chuyen trang sau khi load form --}}
+                                        <input  class="searchTerm"  style="text-align: center" name="search" type="text" placeholder="Tìm kiếm sản phẩm" aria-label="Search" value="<?php
+                                                $value = Session::get('value');
+                                                if($value) {
+                                                    echo $value;
+                                                    Session::put('value', null);
+                                                }
+                                            ?>">
+                                        <button type="submit" class="searchButton">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <?php
+                            foreach ($Product as $value) {}
+                            $dem = count($Product);
+                            $noti = Session::get('noti');
+                            if($noti) {
+                                echo $noti."<b>".$dem."</b> kết quả";
+                                Session::put('noti', null);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div><!--/header_top-->
-        <div class="header-middle"><!--header-middle-->
-            <div class="container">
-            </div>
-        </div><!--/header-middle-->
-        <div class="header-bottom"><!--header-bottom-->
-            <div class="container">
+                <div class="col-sm-6">
+                    <div class="logo pull-right">
+                        <ul class="nav navbar-nav">
+                            <?php
+                            $customer_id = Session::get('customer_id');
+                            if($customer_id == null) {
+                            ?> {{-- neu kh chua login thi chuyen den trang login --}}
+                            <li><a href="{{URL::to('/signin')}}"><i class="fa fa-user"></i> Đăng nhập Khách hàng</a></li>
+                            <li><a href="{{url('/admin-login')}}"><i class="fa fa-lock"></i> Đăng nhập Admin</a></li>
+                            <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <?php
+                            } else { // neu kh da login thi chuyen den trang quan ly don hang cua khach hang
+                            ?>
+                                <div class="dropdown">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php $name = Session::get('customer_name'); echo $name; ?>
+                                        <i class="fa fa-arrow-down"></i>
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                        <li><a class="dropdown-item" href="{{URL::to('/logout-customer')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div><!--/header-bottom-->
-    </header><!--/header-->
+        </div>
+    </div><!--/header_top-->
+    <br><br>
+    <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 50px">
+        <div class="container" style="height: 50px;">
+            <ul id="header_bar">
+                <li><a href="{{url('/trang-chu')}}"  class="active" style="color: black">Trang chủ</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li><a href="{{url('/lien-he')}}"  class="active" style="color: black">About Us</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li><a href="{{url('/')}}"  class="active" style="color: black">Contact</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li><a href="{{url('/tuyen-dung')}}"  class="active" style="color: black">Tuyển dụng</a></li>
+            </ul>
+            <ul id="header_bar">
+                <li style="list-style: none;"><a href="{{url('/bai-viet-gan-day')}}" class="active" style="color: black">Bài viết gần đây</a></li>
+            </ul>
+        </div>
+    </div><!--/header-middle-->
+
+</header><!--/header-->
+
     <section>
         <div class="container">
             <div class="row">
+                <br>
                 <!-- Hiển thị tất cả sản phẩm -->
                 <div class="col-sm-9 padding-right">
+                    <br>
                 @yield('content')
                 </div>
             </div>
         </div>
     </section>
+    <br>
+    <hr>
     <footer id="footer"><!--Footer-->
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.719304959115!2d105.84576654248296!3d21.00388600131077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659266912514!5m2!1svi!2s" width="1345" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div class="companyinfo">
+                        <div class="companyinfo" style="width: 210px">
                             <h2><span>My</span>-COMPUTER</h2>
-                            <p>Thỏa mãn đam mê theo cách của bạn</p>
+                            <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
                         </div>
-                    </div>
-                    <div class="col-sm-7">
 
                     </div>
-                    <div class="col-sm-3"style="width: 21%;">
+                    <div class="col-sm-3">
+                        <div class="companyinfo" style="margin-left: 150px;">
+                            <p style="font-size: 16px; color: black; font-weight: bold"> Menu</p>
+                            <a href="{{url('/trang-chu')}}" class="active" style="color: black">Trang chủ</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="companyinfo" style="margin-left: 100px">
+                            <a href="{{url('/lien-he')}}" style="font-size: 16px; color: black; font-weight: bold">Thông tin liên hệ</a>
+                            <p style="color: black">
+                                Quang Bửu-Hà Nội<br>
+                                <i class="fa fa-phone"></i> 0167.899.999<br>
+                                <i class="fa fa-envelope"></i> cskh@MYLAPTOP.com.vn
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
+                            <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
                         </div>
                     </div>
                 </div>
