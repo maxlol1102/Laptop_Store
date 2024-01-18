@@ -44,10 +44,10 @@
                                 <input type="text" name="phone" placeholder="" value="{{$item->customer_phone}}">
                             </td>
                             <td class="" style="text-align: center">
-                                <input type="text" name="address" placeholder="" style="width: 400px;" value="{{$item->customer_address}}">
+                                <input type="text" name="address" placeholder="" style="width: 300px;" value="{{$item->customer_address}}">
                             </td>
-                            <td>
-                                <button class="btn btn-default check_out" type="submit" name="verify">Xác nhận</button>
+                            <td style="text-align: center;">
+                                <button class="btn btn-default check_out" type="submit" name="verify" style="border: 0.5px solid #000000 ;border-radius: 3px">Xác nhận</button>
                             </td>
                         </form>
                     </tr>
@@ -80,8 +80,8 @@
                             <td class="" style="text-align: center">
                                 <input type="text" name="re_new_pass" placeholder="Nhập lại mật khẩu mới" style="" value="">
                             </td>
-                            <td>
-                                <button class="btn btn-default check_out" type="submit" name="verify">Xác nhận</button>
+                            <td style="text-align: center">
+                                <button class="btn btn-default check_out" type="submit" name="verify" style="border: 0.5px solid #000000; border-radius: 3px">Xác nhận</button>
                             </td>
                         </form>
                     </tr>

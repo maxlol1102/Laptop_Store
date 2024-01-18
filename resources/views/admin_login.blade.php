@@ -15,6 +15,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link rel="stylesheet" href="{{asset('public/backend/css/font-awesome.css')}}"> <!-- Font-Awesome-Icons-CSS -->
 <!-- //css files -->
 <!-- online-fonts -->
+<link rel="shortcut icon" type="image/png" href="{{asset('public/frontend/images/shortcut.png')}}"/>
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
 <!-- //online-fonts -->

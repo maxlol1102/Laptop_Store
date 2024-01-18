@@ -1,7 +1,7 @@
 @extends('admin_layout')  {{-- trang nay de lay giao dien --}}
 @section('admin_content')  {{-- con day la phan code cua tung trang  --}}
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading" style="line-height:80px;">
     Danh Mục Sản Phẩm
     </div>
     <div class="table-responsive">

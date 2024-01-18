@@ -14,6 +14,10 @@
     <link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{{asset('public/frontend/images/shortcut.png')}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         *{
             font-family: "Lato", sans-serif;
@@ -153,8 +157,8 @@
         </div>
     </div><!--/header_top-->
     <br><br>
-    <div class="header-middle" style="margin-top: 15px; background-color:#FE980F; height: 49px">
-        <div class="container" style="height: 49px;">
+    <div class="header-middle" style="margin-top: 10px; background-color:#FE980F; height: 50px">
+        <div class="container" style="height: 50px;">
             <ul id="header_bar">
                 <li style="list-style: none;"><a href="{{url('/trang-chu')}}"  class="active" style="color: black;font-size: 20px;padding: 10px;">Trang chủ</a></li>
             </ul>
@@ -175,70 +179,79 @@
 </header><!--/header-->
     {{--Đoạn Giới thiệu--}}
     <section>
-        <img src="https://jobsgo.vn/blog/wp-content/uploads/2021/05/sinh-vien-nen-mua-laptop-nao-1.jpg" style="width: 1000px; height: 500px; padding-top: 30px; margin-left: 190px">
-        <h1 style="margin-top: 80px; text-align: center"> GIỚI THIỆU VỀ MY-LAPTOP</h1>
-        <div style=" margin: 40px 200px 100px 200px">
-            {{--Đoạn 1--}}
-            <h2 style="padding-top: 20px">Giới thiệu chung</h2>
-            <p class="indent">
-                Cửa hàng MY-LAPTOP chuyên cung cấp các sản phẩm công nghệ chính hãng tại thị trường Việt Nam. Với khẩu hiệu “Nếu những gì chúng tôi không có, nghĩa là bạn không cần”, chúng tôi đã, đang và sẽ tiếp tục nỗ lực đem đến các sản phẩm công nghệ chính hãng đa dạng, phong phú đi kèm mức giá tốt nhất phục vụ nhu cầu của quý khách hàng.
-            </p>
-
-            {{--Đoạn 2--}}
-            <h2 style="padding-top: 10px">Tôn chỉ hoạt động</h2>
-            <p class="indent">
-                MY-LAPTOP luôn hoạt động dựa trên tôn chỉ đặt khách hàng là trung tâm, mọi nỗ lực để đạt được mục tiêu cao nhất là làm hài lòng người dùng thông qua các sản phẩm được cung cấp và dịch vụ khách hàng. MY-LAPTOP đang từng bước xây dựng dịch vụ khách hàng vượt trội, xứng đáng là đơn vị bán lẻ hàng đầu tại Việt Nam. Sự tin tưởng và ủng hộ nhiệt tình của quý khách hàng tại chuỗi chi nhánh đã phần nào khẳng định hiệu quả hoạt động của đội ngũ nhân viên chúng tôi.
-            </p>
-            <ul>
-                <li>
-                    Đối với quý khách hàng, chúng tôi luôn đặt cái tâm làm gốc, làm việc với tinh thần nghiêm túc, trung thực và có trách nhiệm, để mang tới trải nghiệm dịch vụ tốt nhất.
-                </li>
-                <li>
-                    Đối với đồng nghiệp, chúng tôi đề cao văn hóa học hỏi, đoàn kết, tương trợ lẫn nhau tạo nên môi trường làm việc tôn trọng - công bằng - văn minh cho nhân viên trong công ty.
-                </li>
-                <li>
-                    Đối với các đối tác, MY-LAPTOP luôn làm việc dựa trên nguyên tắc tôn trọng, cùng tạo ra giá trị cho cộng đồng và cùng phát triển bền vững.
-                </li>
-            </ul>
-            {{--Đoạn 3--}}
-            <h2 style="padding-top: 10px">Tầm nhìn và sứ mệnh</h2>
-            <p class="indent">
-                Những năm qua, chúng tôi không ngừng cải thiện dịch vụ tại các chi nhánh và hỗ trợ khách hàng qua các kênh online. MY-LAPTOP cam kết mang đến những sản phẩm chất lượng và chế độ bảo hành uy tín, sẵn sàng hỗ trợ khách hàng trong thời gian nhanh nhất.
-            </p>
-            <p>
-                Trong tương lai, MY-LAPTOP sẽ tiếp tục mở rộng hệ thống chi nhánh, hướng tới mục tiêu có mặt tại 63 tỉnh thành trên toàn quốc. Đồng thời, nâng cao chất lượng dịch vụ, hạn chế những rủi ro, lắng nghe và tiếp thu góp ý của quý khách hàng nhằm đem đến trải nghiệm tốt nhất khi mua sắm tại MY-LAPTOP.
-            </p>
-            <p>
-                Cuối cùng, MY-LAPTOP hy vọng sẽ trở thành nhà tiên phong đưa những sản phẩm công nghệ mới nhất đến tay người dùng sớm nhất, tạo ra cuộc sống hiện đại nơi công nghệ kết nối con người, công nghệ phục vụ con người
-            </p>
-            {{--Đoạn 4--}}
-            <h1 style="margin-top: 80px; text-align: center"> HỢP TÁC KINH DOANH</h1>
-            {{--p1--}}
-            <h2 style="padding-top: 30px; font-size: 20px">Mọi thông tin liên hệ hợp tác, cho thuê mặt bằng vui lòng liên hệ:</h2>
-            <ul>
-                <li><strong>Mrs.Trang Dao</strong></li>
-                <li>Email: <i style="color: red">daotrang2001@gmail.com</i></li>
-            </ul>
-            {{--p2--}}
-            <h3 style="font-size: 18px">Hợp tác với các kênh video:</h3>
-            <ul>
-                <li><strong>Mr.Vu</strong></li>
-                <li>Email: <i style="color: red">cnv@gmail.com</i></li>
-            </ul>
-            {{--p3--}}
-            <h3 style="font-size: 18px">Mua hàng liên hệ:</h3>
-            <ul>
-                <li><strong>Gọi miễn phí: <i style="color: red">0167.899.999</i></strong></li>
-                <li>Email: <i style="color: red">cskh@MYLAPTOP.com.vn</i></li>
-            </ul>
-            <h3 style="font-size: 18px">Địa chỉ:</h3>
-            <ul>
-                <li> Nhà A1717 P. Tạ Quang Bửu, Bách Khoa, Hai Bà Trưng, Hà Nội</li>
-                <li style="list-style-type: none"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.739639456053!2d105.84826060865315!3d21.00307128746092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac743bb83537%3A0xf3f7a91f010a8ef0!2zTmjDoCBBMTcsIDE3IFAuIFThuqEgUXVhbmcgQuG7rXUsIELDoWNoIEtob2EsIEhhaSBCw6AgVHLGsG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1659363376200!5m2!1svi!2s" width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
-            </ul>
-
-            <h1 style="margin-top: 80px; font-size: 22px;"> <i style="color: red">MY-LAPTOP</i> xin cảm ơn và và kính mong hợp tác.</h1>
+        {{--Page Bai viet gan day--}}
+        <div class="" style="" id="baivietganday">
+            <h1 style="margin:50px 0; text-align: center; font-weight: bold"> Bài viết gần đây</h1>
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/4/637925496795535496_288959045_5265756713500268_8390729033519885647_n.jpeg" alt="SUNHOUSE - TRẢ LỜI HAY TRAO QUÀ NGAY" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>SUNHOUSE - TRẢ LỜI HAY TRAO QUÀ NGAY</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                </div>
+                <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/6/27/637919374666752607_RC_Collection_1000x1000-4.png" alt="Tuần lễ vàng Lenovo Chất" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Tuần lễ vàng Lenovo Chất</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/26/637944478610752844_RC_Collection_1000x1000.png" alt="Điểm thấp hay cao, Đoán đúng là Trúng" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Điểm thấp hay cao, Đoán đúng là Trúng</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
         </div>
+
+        <!-- Second Photo Grid-->
+        <div class="w3-row-padding">
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div style="">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/7/12/637932152195851759_Ảnh chụp Màn hình 2022-07-12 lúc 09.33.30.png" alt="Quét mã 1 giây Trúng ngay Laptop" style="width:100%; display: block; overflow: hidden;height: 250px;" class="w3-hover-opacity">
+                </div>
+                <div class="w3-container w3-white">
+                <p><b>Quét mã 1 giây Trúng ngay Laptop</b></p>
+                <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/5/10/637562566448239236_VeMayBay-BaiViet.jpg" alt="SẮM LIỀN TAY - BAY MIỄN PHÍ" style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>SẮM LIỀN TAY - BAY MIỄN PHÍ</b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+            <div class="w3-third w3-container">
+                <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/3/1/637502183386071493_Capture.PNG" alt="Thần Tài Đến - Trúng 21 đồng vàng " style="width:100%; display: block; overflow: hidden; height: 250px;" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b>Thần Tài Đến - Trúng 21 đồng vàng </b></p>
+                    <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    <p><button class="w3-button w3-black w3-block">Xem tiếp</button></p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Pagination -->
+        <div class="w3-center w3-padding-32">
+            <div class="w3-bar">
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+                <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+                <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+            </div>
+        </div>
+        {{--       End page bài viết gần đây --}}
     </section>
 
     <footer id="footer"><!--Footer-->

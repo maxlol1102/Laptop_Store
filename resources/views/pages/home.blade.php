@@ -36,7 +36,7 @@
             <div class="single-products">
                 <div class="productinfo text-center" style="height: 400px">
                     <a href="detail_product/{{$pro->code}}"><img src="{{URL::to('public/backend/img_admin/'.$pro->product_img)}}" alt="" /></a>
-                    <p>{{$pro->product_name}}</p>
+                    <a href="detail_product/{{$pro->code}}"><p>{{$pro->product_name}}</p></a>
                     <h2>{{number_format($pro->product_price).' '.'VND'}}</h2>
                     <a href="detail_product/{{$pro->code}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                 </div>
@@ -53,5 +53,8 @@
 <?php
     Session::put('paginate', null); }
 ?>
+
 </div><!--features_items-->
 @endsection
+
+

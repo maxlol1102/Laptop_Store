@@ -14,7 +14,6 @@
             <div class="signin-content">
                 <div class="signin-image">
                     <figure><img src="public/frontend/customer-login/images/signin-image.jpg" alt="sing up image"></figure>
-                    <a href="{{URL::to('/signup')}}" style="font-family: Times New Roman; font-size: 18px" class="signup-image-link">Đăng ký tài khoản</a>
                 </div>
 
                 <div class="signin-form">
@@ -29,7 +28,8 @@
                             <input style="font-family: Times New Roman;" type="password" name="your_pass" id="your_pass" placeholder="Mật khẩu"/>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" style="font-family: Times New Roman;" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
+                            <input type="submit" style="font-family: Times New Roman; margin-right: 10px;" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
+                            <a style="font-family: 'Times New Roman', Times, serif; font-size: 18px" href="{{URL::to('/signup')}}">Đăng ký</a>
                         </div>
                     </form>
                 </div>

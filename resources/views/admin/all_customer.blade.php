@@ -18,11 +18,11 @@
         <thead style="background: #ddede0 ">
         <tr>
             <th style="text-align: center">STT</th>
-            <th style="text-align: center">Mã khách hàng</th>
             <th style="text-align: center">Tài khoản khách hàng</th>
+            <th style="text-align: center">Số điện thoại</th>
             <th style="text-align: center">Họ tên</th>
 {{--            <th style="text-align: center">Địa chỉ</th>--}}
-{{--            <th style="text-align: center">Số điện thoại</th>--}}
+
             <th style="text-align: center">Lịch sử mua hàng</th>
 {{--            <th style="text-align: center">Chức năng</th>--}}
         </tr>
@@ -31,11 +31,11 @@
         @foreach($all_customer as $key => $cate_custom)
         <tr>
             <td style="text-align: center"><?php $i++; echo $i; ?></td>
-            <td style="text-align: center">{{ $cate_custom->customer_id }}</td>
             <td style="text-align: center">{{ $cate_custom->customer_account }}</td>
+            <td style="text-align: center">{{ $cate_custom->customer_phone }}</td>
             <td style="text-align: center">{{ $cate_custom->customer_name }}</td>
 {{--            <td style="text-align: center">{{ $cate_custom->customer_address }}</td>--}}
-{{--            <td style="text-align: center">{{ $cate_custom->customer_phone }}</td>--}}
+
             <td style="text-align: center"><a href="{{URL::to('/order-history')}}/{{$cate_custom->customer_id}}">Chi tiết</a></td>
 {{--            <td style="text-align: center">--}}
 {{--            <a href="{{URL::to('/edit-customer/'.$cate_custom->customer_id)}}" class="active" ui-toggle-class="" style="font-size: 17px">--}}

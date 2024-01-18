@@ -27,14 +27,13 @@
 </head><!--/head-->
 <body style="background-color: #FFFFFF;">
     <header id="header"><!--header-->
-        <div class="header_top" style="position: fixed;z-index: 13;width: 100%;"><!--header_top-->
+        <div class="header_top" style="position: fixed;z-index: 13;width: 100%; padding-bottom: 5px"><!--header_top-->
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="logo pull-left">
                             <ul class="nav navbar-nav">
                                 <li><a href="{{url('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li><a href="{{url('/lien-he')}}">Liên hệ</a></li>
                             </ul>
                             <div style="text-align: center">
                                 <!-- Search form -->
@@ -94,6 +93,7 @@
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
+
     <section>
         <div class="container">
             <div class="row">
@@ -103,14 +103,18 @@
             </div>
         </div>
     </section>
+
     <footer id="footer"><!--Footer-->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-2">
-                        <div class="companyinfo">
+                        <div class="companyinfo" style="width: 210px">
                             <h2><span>My</span>-COMPUTER</h2>
-                            <p>Thỏa mãn đam mê theo cách của bạn</p>
+                            <p style="color: #000000">Thỏa mãn đam mê theo cách của bạn.</p>
+                        </div>
+                        <div>
+                            <a href="{{url('/lien-he')}}">Thông tin liên hệ</a>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -118,7 +122,7 @@
                     <div class="col-sm-3"style="width: 21%;">
                         <div class="address">
                             <img src="{{asset('public/frontend/images/map.png')}}" alt="" />
-                            <p>Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
+                            <p style="color: #000000">Chúng tôi mang đến dịch vụ trực tuyến tốt nhất trên thế giới</p>
                         </div>
                     </div>
                 </div>
@@ -132,6 +136,7 @@
             </div>
         </div>
     </footer><!--/Footer-->
+
     <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>

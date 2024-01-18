@@ -57,6 +57,7 @@ class CustomerController extends Controller
         public function orderHistory($customer_id) {
             $customer = DB::table('tbl_customer')->where('customer_id', $customer_id)->get();
             $history = DB::table('orders')
+            ->orderBy('order_day')
             ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')->where('orders.customer_id', $customer_id)->select('*')->orderBy('orders.order_status', 'asc')->paginate(10);
             return view('admin.order-history', compact('history', 'customer'));
         }
@@ -78,8 +79,12 @@ class CustomerController extends Controller
             public function orderManager() {
                 $db_order = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                ->where('order_status', 0)->select('*')->paginate(10);
-                return view('admin.order_manager', compact('db_order'));
+                ->where('order_status', 0)
+                    ->orderBy('order_day')
+                    ->select('*')->paginate(10);
+
+                $total_xuly = DB::table('orders')->where('order_status', 0)->count();
+                return view('admin.order_manager', compact('db_order','total_xuly'));
             }
         // chi tiet don hang
             public function orderDetailManager(Request $request) {
@@ -103,6 +108,7 @@ class CustomerController extends Controller
             public function orderManagerVerified() {
                 $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
+                ->orderBy('order_day')
                 ->where('order_status', 1)->select('*')->paginate(10);
                 return view('admin.order_manager_verified', compact('db'));
             }
@@ -115,14 +121,17 @@ class CustomerController extends Controller
                         Session::put('value', $search);
                         $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
+                ->orderBy('order_day')
                 ->where('orders.order_status', 2)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
                         return view('admin.order_manager_successfully', compact('db'));
                     }
                 }
                 $db = DB::table('orders')
                 ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
+                ->orderBy('order_day','desc')
                 ->where('order_status', 2)->select('*')->get();
                 return view('admin.order_manager_successfully', compact('db'));
+
             }
         // huy don hang
             public function cancelOrder($order_id) {
@@ -131,7 +140,8 @@ class CustomerController extends Controller
             }
         // giao hang thanh cong
             public function successOrder($order_id) {
-                DB::table('orders')->where('order_id', $order_id)->update(['order_status' => 2]);
+                DB::table('orders')
+                    ->where('order_id', $order_id)->update(['order_status' => 2]);
                 return Redirect::to('/order-manager-verified');
             }
         // giao dien trang thu hoi don hang
@@ -143,7 +153,8 @@ class CustomerController extends Controller
                         Session::put('value', $search);
                         $db = DB::table('orders')
                         ->join('tbl_customer', 'orders.customer_id', '=', 'tbl_customer.customer_id')
-                        ->where('orders.order_status', 3)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
+                            ->orderBy('order_day')
+                            ->where('orders.order_status', 3)->where('tbl_customer.customer_phone', 'like', '%'.$search.'%' )->orWhere('orders.order_id', 'like', '%'.$search.'%')->get();
                         return view('admin.order-manager-callback', compact('db'));
                     }
                 }
@@ -225,7 +236,9 @@ class CustomerController extends Controller
         // trang quan ly don hang cua khach hang
         public function customer() {
             $customer_id = Session::get('customer_id');
-            $Product = DB::table('orders')->where('customer_id', $customer_id)->select('*')->get();
+            $Product = DB::table('orders')
+                ->orderBy('order_day','desc')
+                ->where('customer_id', $customer_id)->select('*')->get();
             return view('pages.customer', compact('Product'));
         }
         // trang thong tin cua khach hang
@@ -382,4 +395,7 @@ class CustomerController extends Controller
             return Redirect::to('/customer');
         }
     //end/
+
+
+
 }

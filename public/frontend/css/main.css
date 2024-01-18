@@ -65,6 +65,7 @@ a#scrollUp i {
 
 .header_top {
     background: none repeat scroll 0 0 #F0F0E9;
+
 }
 
 .contactinfo ul li:first-child {
@@ -1301,6 +1302,7 @@ h2.title {
 .shop-details-tab .col-sm-12 {
     padding-left: 0;
     padding-right: 0;
+
 }
 
 
@@ -1531,7 +1533,6 @@ h2.title {
 
 .breadcrumbs .breadcrumb {
     background: transparent;
-    margin-bottom: 75px;
     padding-left: 0;
 }
 
@@ -2408,7 +2409,7 @@ h2.title {
     top: 25px;
     left: 5px
 }
-
+/*Sua nut dropdown Khach hang*/
 
 /*************************
 ******* Contact CSS ********
